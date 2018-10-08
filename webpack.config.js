@@ -9,6 +9,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanObsoleteChunks = require("webpack-clean-obsolete-chunks");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+require('dotenv').config();
 
 config = {
 	/**
@@ -26,7 +27,7 @@ config = {
 	 *
 	 * This is for Browsersync.
 	 */
-	devUrl: "http://gg-start.loc/"
+	devUrl: process.env.DEVURL
 };
 
 module.exports = (env, argv) => {
