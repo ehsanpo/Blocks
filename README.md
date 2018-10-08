@@ -1,6 +1,8 @@
 # Blocks
 With Blocks content strategy, you no longer need to create sites with HTML in the content editor! Block is structured pieces of content that removes the need for messy markup interspersed with your content.
 
+[[https://github.com/ehsanpo/Blocks/blob/master/public_html/theme/assets/img/favicon.jpg|alt=octocat]]
+
 ## Build Wordpress site with Blocks
 
 In each project, After requirements analysis, we will find a number of Blocks that can be used to build content on the website. Each website for its cut-through blocks that they can use in different places to display different types of content such as images, texts, slideshows ... This way, the customer can easily create pages by selecting any blocks that fit the content the customer wants show.
