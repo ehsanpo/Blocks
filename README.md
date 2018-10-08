@@ -60,6 +60,14 @@ Edit `composer.json` for dependencies. For plugins that are required for the sit
 
 To change the version of ACF you need to be update three places, under the package defined in `repository` for version and in the URL, and under `require`.
 
+## Generating Block template with wp.sh
+
+`chmod u+x ./wp.sh`
+
+Then
+
+`./wp.sh image`
+
 ## Deploying
 
 This project uses [Flightplan](https://github.com/pstadler/flightplan) to manage deployment to servers. Install it globally via `npm`:
@@ -69,6 +77,7 @@ This project uses [Flightplan](https://github.com/pstadler/flightplan) to manage
 And then locally in this folder: `npm install` to fetch the local Flightplan instance.
 
 Run `fly init:ENVIRONMENT` to setup the server and then start using `fly deploy:ENVIRONMENT`.
+
 
 ## Dev Stack: 
 [Timber](https://github.com/timber/timber),  [Timmy](https://github.com/mindkomm/timmy), [Composer](), [Bedrock autoloader](https://roots.io/bedrock/docs/mu-plugins-autoloader/), [ACF](https://www.advancedcustomfields.com/)
