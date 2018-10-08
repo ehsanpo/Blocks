@@ -1,15 +1,12 @@
 vendor
-web/public_html
-public_html/theme/assets/js/
-public_html/theme/assets/css
-
 .env
 composer.lock
+node_modules
 
 public_html/site/plugins/
-public_html/site/mu-plugins/
-public_html/site/uploads
-node_modules
+public_html/site/mu-plugins/*
 public_html/site/uploads
 public_html/wp
 public_html/theme/assets/dist
+
+!public_html/site/mu-plugins/bedrock-autoloader.php

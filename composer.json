@@ -3,7 +3,20 @@
     {
       "type": "composer",
       "url": "https://wpackagist.org"
+    },
+    {
+      "type": "package",
+      "package": {
+            "name": "advanced-custom-fields/advanced-custom-fields-pro",
+            "version": "5.7.7",
+            "type": "wordpress-plugin",
+            "dist": {
+              "type": "zip",
+              "url": "https://connect.advancedcustomfields.com/index.php?t=5.3.7&p=pro&a=download&k=b3JkZXJfaWQ9NDI1Mzh8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE0LTEwLTIxIDA4OjE2OjEz"
+            }
+      }
     }
+
   ],
   "minimum-stability": "dev",
   "config": {
@@ -18,7 +31,8 @@
     "mindkomm/timmy": "dev-master",
     "wpackagist-plugin/winsite-image-optimizer": "1.0.7",
     "wpackagist-plugin/login-security-solution": "0.56.0",
-    "dg/composer-cleaner": "dev-master"
+    "dg/composer-cleaner": "dev-master",
+    "advanced-custom-fields/advanced-custom-fields-pro": "*"
   },
   "extra": {
     "wordpress-install-dir": "public_html/wp",
