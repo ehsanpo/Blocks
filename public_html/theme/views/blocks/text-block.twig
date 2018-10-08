@@ -1,0 +1,9 @@
+<div class="text-block"> 
+	<div class="wrapper{% if small_box %} small-box{% endif %}">
+		<div class="grid--auto-c">
+			{% for item in stn_block %}
+				<div>{{item.body_text}}</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>

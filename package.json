@@ -1,0 +1,51 @@
+{
+	"name": "blocks",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"build": "webpack --mode=production",
+		"watch": "webpack --watch --mode=development",
+		"watch-d": "webpack-dashboard webpack --watch --mode=development",
+		"deploy": "webpack --mode=production && fly deploy:dev"
+	},
+	"author": "E.P.",
+	"license": "MIT",
+	"dependencies": {
+		"jquery": "^3.3.1",
+		"lazysizes": "^4.1.3",
+		"picturefill": "^3.0.2"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.1.0",
+		"@babel/preset-env": "^7.1.0",
+		"adaptive-background": "^0.1.0",
+		"autoprefixer": "^9.1.5",
+		"babel-core": "^6.26.3",
+		"babel-loader": "^8.0.2",
+		"babel-preset-env": "^1.7.0",
+		"browser-sync": "^2.24.7",
+		"browser-sync-webpack-plugin": "^2.2.2",
+		"clean-webpack-plugin": "^0.1.19",
+		"css-loader": "^1.0.0",
+		"extract-css-chunks-webpack-plugin": "^3.1.1",
+		"extract-text-webpack-plugin": "^4.0.0-beta.0",
+		"favicons-webpack-plugin": "0.0.9",
+		"flightplan": "^0.6.19",
+		"gulp-babel": "^8.0.0",
+		"home-dir": "^1.0.0",
+		"html-webpack-exclude-assets-plugin": "0.0.7",
+		"html-webpack-plugin": "^3.2.0",
+		"mini-css-extract-plugin": "^0.4.3",
+		"node-sass": "^4.9.3",
+		"optimize-css-assets-webpack-plugin": "^5.0.1",
+		"postcss-loader": "^3.0.0",
+		"sass-loader": "^7.1.0",
+		"slack-node": "^0.2.0",
+		"style-loader": "^0.23.0",
+		"uglifyjs-webpack-plugin": "^2.0.1",
+		"webpack": "^4.19.1",
+		"webpack-clean-obsolete-chunks": "^0.4.0",
+		"webpack-cli": "^3.1.0",
+		"webpack-dashboard": "^2.0.0"
+	}
+}
