@@ -4,8 +4,9 @@ $root_dir = dirname(__DIR__);
 $webroot_dir = $root_dir . '/public_html';
 
 // This will load .env in the root
-Dotenv::load($root_dir);
-Dotenv::required(array('DB_NAME', 'DB_USER', 'DB_PASSWORD'));
+$dotenv = new Dotenv\Dotenv($root_dir);
+$dotenv->load($root_dir);
+$dotenv->required(array('DB_NAME', 'DB_USER', 'DB_PASSWORD'));
 
 $env = empty(getenv('WP_ENV')) ? 'production' : getenv('WP_ENV');
 require_once(__DIR__ . '/env.' . $env . '.php');
