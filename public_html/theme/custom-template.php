@@ -10,8 +10,3 @@ render('empty.twig', array(
 	'post' => new SitePost(),
 	'all_posts' => $all_posts,
 ));
-
-
-
-
-

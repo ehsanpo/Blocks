@@ -13,8 +13,3 @@ render('list.twig', array(
 	'post' => $post ,
 	'all_posts' => $all_posts,
 ));
-
-
-
-
-

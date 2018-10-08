@@ -3,7 +3,6 @@
 {% block content %}
 			<article>
 				<div class="block block__list">
-
 					<ul class="list__inline">
 						{% for post in result %}
 							<li class="block__list--item">
@@ -27,7 +26,6 @@
 								<a href="{{pagination.next.link}}" class="button button--icon-right button--primary">
 									<span>{{__('Next page','site')}}</span>
 									<svg class="icon icon-chevron-right"><use xlink:href="{{ theme.link }}/assets/img/icons.svg#chevron-right"></use></svg>
-
 								</a>
 							</li>
 							{% endif %}
@@ -44,7 +42,4 @@
 				{% endif %}
 			</article>
 		{{ render.sections(post.get_field('sections')) }}
-
 {% endblock %}
-
-
