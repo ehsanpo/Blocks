@@ -68,4 +68,5 @@ And then locally in this folder: `npm install` to fetch the local Flightplan ins
 
 Run `fly init:ENVIRONMENT` to setup the server and then start using `fly deploy:ENVIRONMENT`.
 
-    
+## Dev Stack: 
+[Timber](https://github.com/timber/timber),  [Timmy](https://github.com/mindkomm/timmy), [Composer](), [Bedrock autoloader](https://roots.io/bedrock/docs/mu-plugins-autoloader/), [ACF](https://www.advancedcustomfields.com/)
