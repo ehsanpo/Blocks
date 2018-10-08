@@ -60,13 +60,18 @@ Edit `composer.json` for dependencies. For plugins that are required for the sit
 
 To change the version of ACF you need to be update three places, under the package defined in `repository` for version and in the URL, and under `require`.
 
-## Generating Block template with wp.sh
+## Using bash script to create new Blocks
 
-`chmod u+x ./wp.sh`
+To be able to run the script first run chmod `u+x wp.sh` then run `./wp.sh` blockname to create new blocks.
 
-Then
+The script will create 3 files:
 
-`./wp.sh image`
+PHP file in public_html/theme/blocks/
+
+Twig file in public_html/theme/views/blocks/
+
+CSS file in public_html/theme/assets/sass/blocks/
+
 
 ## Deploying
 

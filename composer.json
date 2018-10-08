@@ -45,6 +45,7 @@
       "public_html/site/mu-plugins/{$name}/": [
         "type:wordpress-muplugin",
         "wpackagist-plugin/timber-library"
+        "wpackagist-plugin/kodeo-admin-ui",
       ],
       "public_html/site/plugins/{$name}/": ["type:wordpress-plugin"]
     }
