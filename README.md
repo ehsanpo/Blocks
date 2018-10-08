@@ -1,7 +1,7 @@
 # Blocks
 With Blocks content strategy, you no longer need to create sites with HTML in the content editor! Block is structured pieces of content that removes the need for messy markup interspersed with your content.
 
-[[https://github.com/ehsanpo/Blocks/blob/master/public_html/theme/assets/img/favicon.jpg|alt=octocat]]
+![Blocks](https://raw.githubusercontent.com/ehsanpo/Blocks/master/public_html/theme/assets/img/favicon.jpg)
 
 ## Build Wordpress site with Blocks
 
