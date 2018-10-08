@@ -64,7 +64,7 @@ if(getenv('WP_HOME')) {
 }
 
 // Set the default theme
-define('WP_DEFAULT_THEME', 'gg');
+define('WP_DEFAULT_THEME', 'Blocks');
 
 // Make sure the wp-content dir points to our site dir
 define('WP_CONTENT_DIR', $webroot_dir . '/site');
