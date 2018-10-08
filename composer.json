@@ -7,16 +7,20 @@
     {
       "type": "package",
       "package": {
-            "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.7.7",
-            "type": "wordpress-muplugin",
-            "dist": {
-              "type": "zip",
-              "url": "https://connect.advancedcustomfields.com/index.php?t=5.3.7&p=pro&a=download&k=b3JkZXJfaWQ9NDI1Mzh8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE0LTEwLTIxIDA4OjE2OjEz"
-            }
+        "name": "advanced-custom-fields/advanced-custom-fields-pro",
+        "version": "5.7.7",
+        "type": "wordpress-muplugin",
+        "dist": {
+          "type": "zip",
+          "url":
+            "https://connect.advancedcustomfields.com/index.php?p=pro&a=download"
+        },
+        "require": {
+          "philippbaschke/acf-pro-installer": "^1.0",
+          "composer/installers": "^1.0"
+        }
       }
     }
-
   ],
   "minimum-stability": "dev",
   "config": {
@@ -26,12 +30,12 @@
   "require": {
     "php": ">=5.4",
     "johnpbloch/wordpress": "4.9.8",
-    "vlucas/phpdotenv": "~1.0.9",
+    "vlucas/phpdotenv": "2.5.1",
     "timber/timber": "1.8.0",
     "mindkomm/timmy": "dev-master",
     "wpackagist-plugin/winsite-image-optimizer": "1.0.7",
     "wpackagist-plugin/login-security-solution": "0.56.0",
-    "wpackagist-plugin/kodeo-admin-ui":"1.0.6",
+    "wpackagist-plugin/kodeo-admin-ui": "1.0.6",
     "dg/composer-cleaner": "dev-master",
     "advanced-custom-fields/advanced-custom-fields-pro": "*"
   },
@@ -42,9 +46,7 @@
         "type:wordpress-muplugin",
         "wpackagist-plugin/timber-library"
       ],
-      "public_html/site/plugins/{$name}/": [
-        "type:wordpress-plugin"
-      ]
+      "public_html/site/plugins/{$name}/": ["type:wordpress-plugin"]
     }
   }
 }
