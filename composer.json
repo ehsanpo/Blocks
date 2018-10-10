@@ -31,7 +31,7 @@
     "php": ">=5.4",
     "johnpbloch/wordpress": "4.9.8",
     "vlucas/phpdotenv": "2.5.1",
-    "timber/timber": "1.8.0",
+    "wpackagist-plugin/timber-library":"1.8.1",
     "mindkomm/timmy": "dev-master",
     "wpackagist-plugin/winsite-image-optimizer": "1.0.7",
     "wpackagist-plugin/login-security-solution": "0.56.0",
@@ -44,8 +44,8 @@
     "installer-paths": {
       "public_html/site/mu-plugins/{$name}/": [
         "type:wordpress-muplugin",
-        "wpackagist-plugin/timber-library"
-        "wpackagist-plugin/kodeo-admin-ui",
+        "wpackagist-plugin/timber-library",
+        "wpackagist-plugin/kodeo-admin-ui"
       ],
       "public_html/site/plugins/{$name}/": ["type:wordpress-plugin"]
     }

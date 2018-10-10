@@ -66,11 +66,11 @@ To be able to run the script first run chmod `u+x wp.sh` then run `./wp.sh` bloc
 
 The script will create 3 files:
 
-PHP file in public_html/theme/blocks/
+PHP file in /public_html/theme/blocks/
 
-Twig file in public_html/theme/views/blocks/
+Twig file in /public_html/theme/views/blocks/
 
-CSS file in public_html/theme/assets/sass/blocks/
+CSS file in /public_html/theme/assets/sass/blocks/
 
 
 ## Deploying

@@ -80,7 +80,7 @@ class Site extends TimberSite {
 			'search-form',
 		]);
 
-		add_action('admin_enqueue_scripts', array($this,'registerAdminAssets'));
+		add_action('admin_enqueue_scripts', array($this,'register_admin_assets'));
 		//add_action( 'after_setup_theme', array($this, 'tsk_editor_styles'));
 		
 		add_filter('timber_context', array($this, 'timber_context'));
@@ -96,7 +96,7 @@ class Site extends TimberSite {
 	private function editor_styles() {
 		add_editor_style( get_template_directory_uri()  . '/assets/css/editor-style.css' );
 	}
-	private function register_admin_assets(){
+	function register_admin_assets(){
 	
 		$js = get_template_directory_uri() . '/assets/js/admin.js';
 		$css = get_template_directory_uri() . '/assets/css/admin.css';
@@ -148,6 +148,8 @@ class Site extends TimberSite {
 		$ctx['google_analytics_id'] = get_field('google_analytics_id', 'options');
 
 		$ctx['main_css'] = str_replace(' ', '', $main_css);
+		print_r( $above_the_fold_css);
+		exit;
 		$ctx['above_the_fold_css'] = str_replace(' ', '', $above_the_fold_css );
 		$ctx['hash'] = str_replace(' ', '', $hash);
 		return $ctx;
