@@ -99,7 +99,7 @@ class Site extends TimberSite {
 	function register_admin_assets(){
 	
 		$js = get_template_directory_uri() . '/assets/js/admin.js';
-		$css = get_template_directory_uri() . '/assets/css/admin.css';
+		$css = get_template_directory_uri() . '/admin-css.css';
 
 		wp_enqueue_script('jquery-ui-position');
 
@@ -133,10 +133,10 @@ class Site extends TimberSite {
 	  * Setup any extra global variables you want all templates of the
 	  * theme to have access to.
 	  */
-	private function timber_context($ctx) {
+	function timber_context($ctx) {
 		global $main_css, $above_the_fold_css,$hash ;
-		$ctx['site'] = $this;
 
+		$ctx['site'] = $this;
 		$ctx['primary_menu'] = new TimberMenu('primary');
 		$ctx['footer_menu'] = new TimberMenu('footer');
 
@@ -148,8 +148,7 @@ class Site extends TimberSite {
 		$ctx['google_analytics_id'] = get_field('google_analytics_id', 'options');
 
 		$ctx['main_css'] = str_replace(' ', '', $main_css);
-		print_r( $above_the_fold_css);
-		exit;
+		
 		$ctx['above_the_fold_css'] = str_replace(' ', '', $above_the_fold_css );
 		$ctx['hash'] = str_replace(' ', '', $hash);
 		return $ctx;

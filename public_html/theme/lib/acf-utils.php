@@ -36,14 +36,4 @@ function bl_create_option_page(){
 }
 add_action( 'init', 'bl_create_option_page' );
 
-// Add stylesheet with custom ACF styles
-
-
-function tsk_acf_admin_head() {
-	?>
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/admin-css.css">
-	<?php
-}
-add_action('acf/input/admin_head', 'tsk_acf_admin_head');
-
 ?>
