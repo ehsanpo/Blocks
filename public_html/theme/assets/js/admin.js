@@ -1,4 +1,5 @@
-(function($) {
+var $ = jQuery.noConflict();
+$(function() {
 	acf.fields.sections = acf.field.extend({
 		type: 'sections',
 
@@ -258,4 +259,4 @@
 			});
 		}
 	});
-})(jQuery);
+});
