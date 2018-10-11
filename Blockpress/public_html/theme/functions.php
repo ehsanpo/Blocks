@@ -116,7 +116,7 @@ class Site extends TimberSite {
 	 *
 	 */
 
-	private function fix_svg_thumb_display() {
+	function fix_svg_thumb_display() {
 		  echo '<style type="text/css">
 		.attachment-266x266, .thumbnail img {
 			 width: 100% !important;
@@ -124,7 +124,7 @@ class Site extends TimberSite {
 		}
 		</style>';
 	}
-	private function add_svg_to_upload_mimes( $upload_mimes ) {
+	function add_svg_to_upload_mimes( $upload_mimes ) {
 		$upload_mimes['svg'] = 'image/svg+xml';
 		$upload_mimes['svgz'] = 'image/svg+xml';
 		return $upload_mimes;
@@ -153,8 +153,6 @@ class Site extends TimberSite {
 		$ctx['hash'] = str_replace(' ', '', $hash);
 		return $ctx;
 	}
-
-	
 
 	private function setup_scripts() {
 
