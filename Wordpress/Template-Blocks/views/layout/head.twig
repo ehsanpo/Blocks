@@ -1,0 +1,15 @@
+<meta charset="{{ bloginfo('charset') }}">
+<title>{{ (wp_title ? wp_title ~ ' - ' ) | raw }}{{ site.name }}</title>
+<meta name="description" content="{{ bloginfo('description') }}">
+<meta name="viewport" content="width=device-width, minimum-scale = 1.0, initial-scale = 1.0, maximum-scale = 5.0, user-scalable=yes">
+<meta property="og:site_name" content="{{site.name}}" />
+{% if options.share_description %}
+	<meta property="og:description" content="{{options.share_description}}" />
+{% endif %}
+{% if options.share_image %}
+	<meta property="og:image" content="{{options.share_image.url|resize(1200,630)}}" />
+{% endif %}
+<link rel="shortcut icon" type="image/x-icon" href="{{ theme.path }}/assets/dist/favicons/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ theme.path }}/assets/dist/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ theme.path }}/assets/dist/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ theme.path }}/assets/dist/favicons/favicon-16x16.png">

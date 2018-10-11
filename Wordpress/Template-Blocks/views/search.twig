@@ -1,0 +1,51 @@
+{% extends 'layout/base.twig' %}
+
+{% block content %}
+	<section class="main search-page" id="main" role="main">
+		<header>
+			<div class="wrapper">
+				<h1 class="visually-hidden">{{visually_hidden_title}}</h1>
+				<p class="subtitle">{{title}}</p>
+			</div>
+		</header>
+		<section>
+			<div class="search__list">
+				<ul>
+					{% for post in posts %}
+					<li>
+						<h2><a href="{{ post.link }}">{{ post.title }}</a></h2>
+						<time class="datetime" datetime="{{post.post_date|date('Y-m-d ')}}">{{post.post_date|date('Y-m-d ')}}</time>
+						<div class="search__ldescription">
+							{ post.content }}
+						</div>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% if pagination.next or pagination.prev %}
+				<nav>
+					<ul>
+						{% if pagination.next %}
+						<li class="pagination--next">
+							<a href="{{pagination.next.link}}" class="button button--icon-right button--primary">
+								<span>{{__('Next page','site')}}</span>
+								<svg class="icon icon-chevron-right"><use xlink:href="{{ theme.link }}/assets/img/icons.svg#chevron-right"></use></svg>
+
+							</a>
+						</li>
+						{% endif %}
+						{% if pagination.prev %}
+							<li class="pagination--prev">
+								<a href="{{pagination.prev.link}}" class="button button--icon-left button--primary">
+									<svg class="icon icon-chevron-left"><use xlink:href="{{ theme.link }}/assets/img/icons.svg#chevron-left"></use></svg>
+									<span>{{__('Previous page','site')}}</span>
+								</a>
+							</li>
+						{% endif %}
+					</ul>
+				</nav>
+			{% endif %}
+
+		</section>
+	</section>
+{% endblock %}

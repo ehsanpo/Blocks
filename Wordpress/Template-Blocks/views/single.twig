@@ -1,0 +1,28 @@
+{% extends 'layout/base.twig' %}
+
+{% block head %}
+	{% if post.thumbnail %}
+		<meta property="og:image" content="{{post.thumbnail}}" />
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+			<article class="layout--single">
+					<header class="pageheader">
+						{% if post.thumbnail %}
+							<div class="media" style="background-image:url({{post.thumbnail|resize(1400)}})">
+								<div class="wrapper">
+									<h1>{{ post.title }}</h1>
+								</div>
+							</div>
+						{% else %}
+							<div class="wrapper pageheader--noimg">
+								<h1>{{ post.title }}</h1>
+							</div>
+						{% endif %}
+					</header>
+					<section class="wrapper">
+						{{ post.content }}
+					</section>
+			</article>
+{% endblock %}
