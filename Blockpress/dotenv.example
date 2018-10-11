@@ -1,0 +1,11 @@
+# Copy this file to .env and edit it
+WP_ENV=development
+
+DB_NAME=start
+DB_USER=root
+DB_PASSWORD=root
+
+# Uncomment this to fix "No such file or directory" errors from mysqli_real_connect
+#DB_HOST=127.0.0.1
+ACF_PRO_KEY=Your-Key-Here
+DEVURL=http://blocks.loc/

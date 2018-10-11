@@ -24,3 +24,4 @@ add_filter( 'timmy/sizes', function( $sizes ) {
 		),
 	);
 });
+set_post_thumbnail_size( 0, 0 );
