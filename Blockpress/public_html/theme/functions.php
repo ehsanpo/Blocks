@@ -46,7 +46,7 @@ class Site extends TimberSite {
 		// Setup the page composer
 		PageComposer::for_post_types(array('page'));
 		// //PageComposer::with_shared_content();
-		PageComposer::with_blocks(array_diff(scandir(__DIR__ . '/blocks/'), array('..', '.')));
+		PageComposer::with_blocks(array_diff(scandir(__DIR__ . '/blocks/'), array('..', '.','.DS_Store')));
 
 		// Register Primary Navigation
 		register_nav_menu('primary', 'Primary Navigation');
