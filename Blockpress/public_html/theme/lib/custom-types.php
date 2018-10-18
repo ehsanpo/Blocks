@@ -23,5 +23,6 @@ function bl_custom_post_register() {
         'supports' => array('title','editor','thumbnail','revisions') 
     ); 
 
-	//register_post_type( 'chapter', $args );
+	register_post_type( 'chapter', $args );
 }
+//add_action( 'init', 'bl_custom_post_register' ); 
