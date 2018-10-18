@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanObsoleteChunks = require("webpack-clean-obsolete-chunks");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
-require('dotenv').config();
+require("dotenv").config();
 
 config = {
 	/**
@@ -81,26 +81,25 @@ module.exports = (env, argv) => {
 					config.assetsPath + "/img/favicon.jpg"
 				),
 				inject: true,
-				prefix: 'favicons/',
+				prefix: "favicons/",
 				icons: {
-			      android: false,
-			      appleIcon: true,
-			      appleStartup: false,
-			      coast: false,
-			      favicons: true,
-			      firefox: false,
-			      opengraph: false,
-			      twitter: false,
-			      yandex: false,
-			      windows: false
-			    }
+					android: false,
+					appleIcon: true,
+					appleStartup: false,
+					coast: false,
+					favicons: true,
+					firefox: false,
+					opengraph: false,
+					twitter: false,
+					yandex: false,
+					windows: false
+				}
 			}),
 			new HtmlWebpackPlugin({
 				chunks: ["css", "above", "main"],
-				 template: config.assetsPath + "template.html",
-				 filename: "assets.php",
+				template: config.assetsPath + "template.html",
+				filename: "assets.php",
 				inject: false
-
 			}),
 			new webpack.ProvidePlugin({
 				$: "jquery",
@@ -146,6 +145,10 @@ module.exports = (env, argv) => {
 						},
 						"sass-loader"
 					]
+				},
+				{
+					test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+					loader: "url-loader?limit=100000"
 				}
 			]
 		}

@@ -5,3 +5,4 @@ Wordpress/Template-Blocks/assets/dist
 yarn.lock
 composer.lock
 .env
+package-lock.json
