@@ -101,6 +101,12 @@ module.exports = (env, argv) => {
 				filename: "assets.php",
 				inject: false
 			}),
+			new HtmlWebpackPlugin({
+				chunks: ["css", "above", "main"],
+				template: config.assetsPath + "Style.html",
+				filename: "Styleguide.html",
+				inject: true
+			}),
 			new webpack.ProvidePlugin({
 				$: "jquery",
 				jQuery: "jquery"
