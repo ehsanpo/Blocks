@@ -10,7 +10,7 @@ add_filter( 'timmy/sizes', function( $sizes ) {
 				2, 
 			),
 			'sizes' => '(min-width: 60em) 100vw, 100vw',
-			'name' => 'Width 1/4 fix',
+			'name' => 'Head 1400x900',
 			'post_types' => array( 'post', 'page'  ),
 		),
 		'body' => array(
@@ -19,7 +19,16 @@ add_filter( 'timmy/sizes', function( $sizes ) {
 				2,
 			),
 			'sizes' => '(min-width: 62rem) 50vw, 100vw',
-			'name' => 'Width 1/4 fix',
+			'name' => 'Body 370',
+			'post_types' => array( 'post', 'page' ),
+		),
+		'news' => array(
+			'resize' => array( 370 ),
+			'srcset' => array(
+				2,
+			),
+			'sizes' => '(min-width: 62rem) 50vw, 100vw',
+			'name' => 'News 370',
 			'post_types' => array( 'post', 'page' ),
 		),
 	);
