@@ -8,7 +8,7 @@ var config = {
 
 plan.target('dev', {
 	host: '138.68.135.6',
-	username: process.env.DEVUSER || process.env.USER,
+	username: 'root',
 	agent: process.env.SSH_AUTH_SOCK,
 }, {
 	root:'/var/www/html/ggstarter',

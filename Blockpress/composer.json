@@ -35,7 +35,6 @@
     "mindkomm/timmy": "dev-master",
     "wpackagist-plugin/winsite-image-optimizer": "1.0.7",
     "wpackagist-plugin/login-security-solution": "0.56.0",
-    "wpackagist-plugin/kodeo-admin-ui": "1.0.6",
     "dg/composer-cleaner": "dev-master",
     "advanced-custom-fields/advanced-custom-fields-pro": "*"
   },
