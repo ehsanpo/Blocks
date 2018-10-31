@@ -13,8 +13,8 @@
 			grid-gap: 0;
 		}
 	}
-	&.grid--auto-c{
-				
+}
+.grid--auto-c{
 		display:block;
 		@include bp-medium{
 			display: flex;
@@ -27,4 +27,3 @@
 			}
 		}
 	}
-}

@@ -12,9 +12,3 @@ $layout_styles = function ($styles) {
 
 	return $styles;
 };
-
-add_filter('acf/section/styles/imageAndText-block', $layout_styles);
-add_filter('acf/section/styles/LatestPosts', $layout_styles);
-add_filter('acf/section/styles/links-block', $layout_styles);
-add_filter('acf/section/styles/StandardBlock', $layout_styles);
-

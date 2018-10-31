@@ -86,7 +86,7 @@
 .acf-fc-popup{
 	width: 200px;
 border: 1px solid #ccc;
-background: #fff;
+background: #000;
 }
 .acf-fc-popup a.focus {
     display: none;
