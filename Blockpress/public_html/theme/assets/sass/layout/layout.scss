@@ -1,17 +1,20 @@
 .bg-color-1 {
 	background-color: $c1;
 	color: #fff;
-	a {
+	a,h2,h3,h4 {
 		color: #fff;
 	}
 }
 .bg-color-2{
 	background-color: $c2;
 	color: #fff;
-	a {
+	a,h2,h3,h4 {
 		color: #fff;
 	}
 }
 .bg_color-3 {
 	background-color: $c3;
+	a,h2,h3,h4 {
+		color: #fff;
+	}
 }
