@@ -70,8 +70,8 @@ plan.remote('deploy', function(remote) {
 		remote.log('Deploying site ' + target + ' to ' + release);
 
 		remote.exec('cp -R ' + tmpDir + ' ' + release, { user: user }, { user: user });
-		remote.exec('mkdir ' + release + '/public_html/site/themes', { user: user });
-		remote.exec('ln -s ../../theme ' + release + '/public_html/site/themes/gg', { user: user });
+		//remote.exec('mkdir ' + release + '/public_html/site/themes', { user: user });
+		remote.exec('ln -s ../../theme ' + release + '/public_html/site/themes/Blocks', { user: user });
 
 		Object.keys(shared).forEach(function(key) {
 			var s = dir + '/shared/' + key;
