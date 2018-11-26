@@ -14,7 +14,14 @@
 		}
 		hr {
 			margin: 64px 0;
+			color: #fff;
 		}
+		hr.space{
+
+			margin: 32px 0;
+			color: transparent;
+		}
+
 	</style>
 	<link rel="stylesheet"
 		href>
@@ -22,9 +29,9 @@
 <body>
 	<div class="wrapper">
 		<h1>Styleguide<h1>
-	
+		<hr class="space">
 		<h2>Typography</h2>
-
+		<hr class="space">
 		<div>
 			<h1 class="display">H1-Display - Header</h1>
 			<h1>Header 1</h1>
@@ -34,7 +41,7 @@
 			<h5>Header 5</h5>
 			<h6>Header 6</h6>
 		</div>
-
+		<hr class="space">
 		<div class="grid--auto-c">
 			<div>
 				<h3>Body</h3>
@@ -58,11 +65,55 @@
 				<li>List item 1</li>
 			</ul>
 		</div>
+		<hr class="space">
 		<div>
 			<h3>UX</h3>
 			<a href="#" class="button">Button</a>
 			<a href="#" class="navbar-link">Navbar link</a>
 			<a href="#">Text link</a>
+		</div>
+		<hr class="space">
+		<div>
+			<h2>Forms</h2>
+			<h3>Double column forms</h3>
+			<div class="form-col">
+				
+				<label>
+					<span>Text input label</span>
+					<input type="text" placeholder="Hint text here">
+				</label>
+				<label>
+					<span>TextArea input label</span>
+					<input type="textarea" placeholder="Hint text here">
+				</label>
+			</div>
+
+			<div>
+				<h3>Single column forms</h3>
+				<label>
+					<span>Text input label</span>
+					<input type="text" placeholder="Hint text here">
+
+				</label>
+				<label>
+					<span>TextArea input label</span>
+					<input type="textarea" placeholder="Hint text here">
+					<span class="req"><span>*</span> Required </span>
+				</label>
+				<label>
+					<span>Number input</span>
+					<input type="number" name="quantity" min="1" max="5">
+				</label>
+			</div>
+			<label>
+			<span>Text input label</span>
+				<select>
+					<option value="1">Option</option>
+					<option value="1">Option</option>
+					<option value="1">Option</option>
+					<option value="1">Option</option>
+				</select>
+			</label>
 		</div>
 		<hr>
 
@@ -88,11 +139,11 @@
 		
 
 	</div>
-
+	<hr class="space">
 	<div class="wrapper">
-		<hr>
+		
 		<h2>Elements</h2>
-		<hr>
+		<hr class="space">
 		<h3>Header</h3>
 	</div>
 
@@ -157,7 +208,7 @@
 	</header>
 
 	<div class="wrapper">
-		<hr>
+			<hr class="space">
 		<h3>Footer</h3>
 
 	</div>
