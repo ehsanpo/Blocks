@@ -1,20 +1,48 @@
 /* Variables
  ========================================================================== */
 
+//Primary colours
+
 $c1: #fe3048;
 $c2: #000;
 $c3: #eee;
 
-$max-width: 1128px;
-$max-width_m: 744px;
+//UX colours
 
+$dark:	#505050;
+$mid:	#c4c4c4;
+$light:	#f0f0f0;
+$pos:	#28a745;
+$neg	:#dc3545;
+
+
+//Grid
+$max-width: 1128px;
+$max-width_m: 720px;
+$max-width_n: 328px;
 
 $break-small: 30em;
 $break-mid: 40em;
 $break-large: 60em;
 
-$pad: 16px;
-$block_pad:96px;
-$block_pad_m: 64px;
+//Padding Desktop
+$pad: 		96px;
+$pad_xl:	96px;
+$pad_l: 	64px;
+$pad_m:		48px;
+$pad_s: 	32px;
+$pad_xs: 	24px;
+
+//Padding Mobile
+$pad_m:		64px;
+$pad_m_xl:	64px;
+$pad_m_l:	48px;
+$pad_m_m:	32px;
+$pad_m_s:	24px;
+$pad_m_xs:	16px;
+
+
+$block_pad:$pad;
+$block_pad_m:$pad_m;
 
 $transition: .35s all cubic-bezier(.455,.03,.515,.955);

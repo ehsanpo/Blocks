@@ -18,12 +18,16 @@
 		display:block;
 		@include bp-medium{
 			display: flex;
+			margin: 0 -24px;
 		}
 		& > * {
 			flex: 1;
 			margin-top: 24px;
+
 			@include bp-medium{
 				margin-top: 0;
+				padding: 0 24px;
+				box-sizing: border-box;
 			}
 		}
 		&.grid-gap{
