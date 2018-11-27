@@ -2,7 +2,7 @@
 
 class SharedContentBlock extends Block {
 	function __construct() {
-		$this->id = 'shared-content';
+		$this->id = 'layout-shared_content';
 		$this->name = 'Shared Content Block';
 
 		parent::__construct();

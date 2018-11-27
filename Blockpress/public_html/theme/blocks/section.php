@@ -2,7 +2,7 @@
 
 class Section extends LayoutBlock {
 	function __construct() {
-		$this->id = 'section';
+		$this->id = 'layout-section';
 		$this->name = 'Section Block';
 
 		parent::__construct();
@@ -29,4 +29,4 @@ class Section extends LayoutBlock {
 	}
 }
 
-new Section();
+//new Section();
