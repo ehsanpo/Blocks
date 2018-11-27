@@ -1,5 +1,11 @@
 var $ = jQuery.noConflict();
+console.log(2);
 $(function() {
+
+	// $('.acf-section-popup').blur(function(){
+	// 	console.log(4);
+	// 	$(this).hide();
+	// });
 	acf.fields.sections = acf.field.extend({
 		type: 'sections',
 
@@ -19,7 +25,8 @@ $(function() {
 			'click .acf-section-handle': 'toggle',
 
 			'blur .acf-fc-popup a': 'close_popup',
-			'blur .acf-fc-popup .focus': 'close_popup'
+			'blur .acf-fc-popup .focus': 'close_popup',
+			'blur .acf-section-popup': 'close_popup'
 		},
 
 		focus: function() {
@@ -140,6 +147,7 @@ $(function() {
 		},
 
 		open_popup: function(button, popup, handler, selectedHandler) {
+			console.log(3);
 			popup = $(popup);
 			button = $(button);
 
@@ -204,6 +212,7 @@ $(function() {
 		},
 
 		close_popup: function(e) {
+			console.log('closed');
 			var $popup = e.$el.closest('.acf-fc-popup');
 			this._popupTimer = setTimeout(function() {
 				var parentPopup = $(document.activeElement).closest('.acf-fc-popup')[0];

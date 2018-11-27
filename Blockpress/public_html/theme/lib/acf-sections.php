@@ -115,27 +115,11 @@ class acf_field_sections extends acf_field {
 				$this->render_section($field, $section, 'acfcloneindex');
 			}
 			echo '</div>';
-
-			$section_menu = array();
-			foreach(Blocks::all() as $section) {
-				$section_menu[] = array(
-					'action' => $section->id,
-					'label' => $section->name
-				);
-			}
-			//print_r(Blocks::all() );
-
 			$new = array();
 			foreach(Blocks::all() as $section) {
-				
-				
 				list($item, $number) = explode('-', $section->id);
-				// echo "new";
-				// print_r($item);
-				// exit;
-				// if the array isn't set
 				if(!isset($new[$item])) $new[$item] = array(
-					'group' => $section->id,
+					'group' => ucfirst($item),
 					'label' => $section->name
 				);
 				$new[$item]['blocks'][] = array(
@@ -143,12 +127,9 @@ class acf_field_sections extends acf_field {
 					'label' => $section->name
 				);
 			}
-			// echo "new";
-			// print_r($new  );
-			 
+			// move Content popup to top of the dropdown
+			move_to_top($new, 'content');
 
-
-			//$this->render_popup('acf-sections-menu', $section_menu, true);
 			$this->render_popup('acf-sections-menu',$new, true);
 
 			foreach(Blocks::all() as $section) {
@@ -246,16 +227,10 @@ class acf_field_sections extends acf_field {
 		echo '<ul>';
 		foreach($items as $item) {
 			if ($render) {
-			$assets_url =  get_template_directory_uri(). '/assets/img/blocks/';
-			
-			//print_r($items);
+				$assets_url =  get_template_directory_uri(). '/assets/img/blocks/';
 
-				echo '<li><span class="title">' . htmlentities($item['label']) . '</span><ul class="big-pop-up" data-group="' . $item['group'] . '">';
+				echo '<li><span class="title">' . htmlentities($item['group']) . '</span><ul class="big-pop-up" data-group="' . $item['group'] . '">';
 				foreach($item['blocks'] as $subItem) {
-					// echo "ehsan";
-					// print_r($item['blocks']);
-					// exit;
-
 					echo '<li><a href="#" data-action="' . htmlentities($subItem['action']) . '">';
 					echo '<div>' . htmlentities($subItem['label']) .'</div>';
 					echo '<img src="'. $assets_url . $subItem['action'] . '.png" >';
@@ -265,22 +240,14 @@ class acf_field_sections extends acf_field {
 		}
 		else{
 			if(! empty($item['items'])) {
-
-				//echo 1;
 				echo '<li><span class="title">' . htmlentities($item['label']) . '</span><ul data-group="' . $item['group'] . '">';
 					foreach($item['items'] as $subItem) {
-
-					// echo "ehsan";
-					// print_r($item['blocks']);
-					// exit;
-
 					echo '<li><a href="#" data-action="' . htmlentities($subItem['action']) . '">';
 					echo htmlentities($subItem['label']);
 					echo '</a></li>';
 				}
 				echo '</ul></li>';
 			} else {
-				//echo 2;
 				echo '<li><a href="#" data-action="' . htmlentities($item['action']) . '">';
 				echo htmlentities($item['label']);
 				echo '</a></li>';
@@ -470,4 +437,9 @@ class LayoutBlock extends Block {
 	function render_section($section, $attrs) {
 		Blocks::render_single($section['acf_section'], $section, $attrs);
 	}
+}
+function move_to_top(&$array, $key) {
+    $temp = array($key => $array[$key]);
+    unset($array[$key]);
+    $array = $temp + $array;
 }

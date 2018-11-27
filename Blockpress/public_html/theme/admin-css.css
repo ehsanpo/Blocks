@@ -87,7 +87,7 @@
 	padding-left: 10px;
 }
 .acf-fc-popup{
-	width: 50vw;
+height: 300px;
 border: 1px solid #ccc;
 background: rgba(0,0,0,0.9);
 }
@@ -104,5 +104,8 @@ background: rgba(0,0,0,0.9);
 	padding: 0 8px;
 }
 #acf-sections-menu {
-    top: 0 !important;
+	top: 0 !important;
+	left: 0 !important;
+	right: 0 !important;
+	overflow-y: scroll;
 }

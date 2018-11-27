@@ -3,7 +3,7 @@
 class SharedContentBlock extends Block {
 	function __construct() {
 		$this->id = 'layout-shared_content';
-		$this->name = 'Shared Content Block';
+		$this->name = 'Shared Content';
 
 		parent::__construct();
 	}
@@ -26,8 +26,6 @@ class SharedContentBlock extends Block {
 
 	function render($data, $styles) {
 
-		print_r($data);
-		exit;
 		if(! empty($data['toplevel'])) {
 			return $this->render_toplevel($data, $styles);
 		}
