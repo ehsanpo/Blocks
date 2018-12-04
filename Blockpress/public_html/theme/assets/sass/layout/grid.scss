@@ -18,6 +18,7 @@
 		display:block;
 		@include bp-medium{
 			display: flex;
+			flex-wrap: wrap;
 			margin: 0 -24px;
 		}
 		& > * {

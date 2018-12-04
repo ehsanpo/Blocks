@@ -70,9 +70,9 @@
 
 /* Block padding */
 %block-pad {
-	padding: $block_pad 0;
+	padding: $block_pad_m 0;
 	@include bp-large {
-		padding: $block_pad_m 0;
+		padding: $block_pad 0;
 	}
 }
 
