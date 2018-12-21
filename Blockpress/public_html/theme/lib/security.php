@@ -36,7 +36,7 @@ add_filter('script_loader_src', 'bl_remove_query_string_version', 9999);
 */
 function bl_custom_login_error_message()
 {
-    return __('Oops! Incorrect input', 'base-camp');
+    return __('Oops! Incorrect input', 'bl');
 }
 add_filter('login_errors', 'bl_custom_login_error_message');
 

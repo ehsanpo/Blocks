@@ -1,0 +1,65 @@
+Köpa typsnitt 1-2
+
+Köpa och ställa in webbhotell. 4 (Live setup + SSL + optimera bilder) 
+
+Använda GG reseller 4
+
+Använda shared hosting. 6 (No external, No SSL)
+
+
+
+
+
+Mini
+	elements:
+		header -no dropdown  -topheader
+		footer
+		Cookie bar 
+	Blocks:
+		Hero -slider
+		Text Block
+		Text—Image -layout
+		Banner Block
+		CTA Block
+		Newsletter Block
+		Image Block
+		Video Block
+		Link Blocks
+		Article Block
+
+
+
+Full
+	elements:
+		header
+		footer
+		Cookie bar 
+		Language
+	Blocks:
+		Hero +mobil-image
+		Text Block
+		Text—Image Block
+		Banner Block
+		CTA Block
+		Newsletter Block
+		Image Block
+		Video Block
+		Link Blocks
+		Article Block
+
+
+
+All extra Blocks : från 2t.
+
+WooCommerce:
+	Listning - 4
+	Enskild produkt -4 
+	Webbshop installation -4
+	Betalningsystem -8
+	webshop konfigutation -8
+
+
+
+
+
+

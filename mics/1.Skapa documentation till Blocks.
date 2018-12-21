@@ -1,0 +1,56 @@
+1.Skapa documentation till Blocks.
+Hur dem olika delarna i templaten funkar.
+
+Composer
+	Composer install
+	<-Install Twig (https://twig.symfony.com/)
+	<-Install Timber (https://timber.github.io/docs/)
+	<-Install Timmy (https://github.com/mindkomm/timmy#documentation)
+	<-Install WP-Plugins (https://wpackagist.org/)
+
+Assets
+Base Layout
+	[Head]
+	[Content]
+
+Block files
+
+Images in html
+	L = Lazyload
+	C = Cut |resize()
+	R = Responsive
+
+	OTF ---	BG (C)
+		---	<img> (R)
+
+	Main -- BG (LR)
+		--- <img> (LR)
+
+
+Atoms
+	<- SVG
+	<- Social-Share icons
+	<- Pahe header
+
+
+Deploy
+	Flightplan js
+
+Tester
+	HTML5 TEST
+		https://github.com/zrrrzzt/html-validator-cli
+		(html-validator https://gutsglory.se --verbose)
+	Taking screenshots
+		https://pptr.dev/
+		https://developers.google.com/web/updates/2017/04/headless-chrome
+		https://github.com/GoogleChrome/puppeteer/issues/338
+	Images ÖÄÅ
+	Images ALT
+	Facebook share image
+	Color- contrast
+		https://webaim.org/resources/contrastchecker/?fcolor=4d5763&bcolor=f0f3fc
+
+Cache
+	Wp-tocket
+	Redis
+Block-gen
