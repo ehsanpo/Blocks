@@ -36,6 +36,7 @@
     "wpackagist-plugin/winsite-image-optimizer": "1.0.7",
     "wpackagist-plugin/login-security-solution": "0.56.0",
     "dg/composer-cleaner": "dev-master",
+    "wpackagist-plugin/password-bcrypt":"1.0.3",
     "advanced-custom-fields/advanced-custom-fields-pro": "*"
   },
   "extra": {
@@ -44,7 +45,7 @@
       "public_html/site/mu-plugins/{$name}/": [
         "type:wordpress-muplugin",
         "wpackagist-plugin/timber-library",
-        "wpackagist-plugin/kodeo-admin-ui"
+        "wpackagist-plugin/password-bcrypt"
       ],
       "public_html/site/plugins/{$name}/": ["type:wordpress-plugin"]
     }
