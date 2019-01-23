@@ -2,11 +2,13 @@
 	// 
 	// Custom Type Example
 	// 
-function bl_custom_post_register() {   
+function bl_custom_post_register() {
 
+    $slug = "case"; // <===== Change this
+    $name= "Case";  // <===== Change this
     $labels = array( 
-        'name' => _x('Handlare', 'post type general name'), 
-        'singular_name' => _x('Handlare Item', 'post type singular name'), 
+        'name' => _x($name, 'post type general name'), 
+        'singular_name' => _x($name, 'post type singular name'), 
     );   
 
     $args = array( 
@@ -15,7 +17,7 @@ function bl_custom_post_register() {
         'publicly_queryable' => true, 
         'show_ui' => true, 
         'query_var' => true, 
-        'rewrite' => array( 'slug' => 'work', 'with_front'=> false ), 
+        'rewrite' => array( 'slug' =>  $slug , 'with_front'=> false ), 
         'capability_type' => 'post', 
         'hierarchical' => true,
         'has_archive' => true,  
@@ -23,6 +25,6 @@ function bl_custom_post_register() {
         'supports' => array('title','editor','thumbnail','revisions') 
     ); 
 
-	register_post_type( 'chapter', $args );
+	register_post_type( $slug , $args );
 }
 //add_action( 'init', 'bl_custom_post_register' ); 

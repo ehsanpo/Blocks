@@ -87,9 +87,10 @@
 	padding-left: 10px;
 }
 .acf-fc-popup{
-height: 300px;
+max-height: 300px;
 border: 1px solid #ccc;
 background: rgba(0,0,0,0.9);
+max-width: 200px;
 }
 .acf-fc-popup img {
 
@@ -108,4 +109,5 @@ background: rgba(0,0,0,0.9);
 	left: 0 !important;
 	right: 0 !important;
 	overflow-y: scroll;
+	max-width: 100%;
 }

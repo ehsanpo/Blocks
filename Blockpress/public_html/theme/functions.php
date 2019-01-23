@@ -185,3 +185,9 @@ class Site extends TimberSite {
 }
 
 new Site();
+
+
+if (!is_admin()) add_action( 'wp_print_styles', 'my_deregister_javascript', 100 );
+function my_deregister_javascript() {
+    wp_deregister_style('wp-block-library');
+}

@@ -1,5 +1,4 @@
 var $ = jQuery.noConflict();
-console.log(2);
 $(function() {
 
 	// $('.acf-section-popup').blur(function(){

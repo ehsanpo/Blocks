@@ -12,6 +12,7 @@ class SharedContentBlock extends Block {
 		$fields[] = array(
 			'key' => 'shared_content',
 			'name' => 'id',
+			'_name' => 'id',
 			'label' => __('Select content', I18N_THEME),
 			'type' => 'post_object',
 			'required' => 1,

@@ -12,6 +12,7 @@ class Section extends LayoutBlock {
 		$fields[] = array(
 			'key' => 'content',
 			'name' => 'content',
+			'_name' => 'content',
 			'label' => __('Blocks in section', I18N_THEME),
 			'type' => 'sections',
 			'required' => 1

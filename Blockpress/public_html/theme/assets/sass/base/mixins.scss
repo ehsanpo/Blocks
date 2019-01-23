@@ -23,6 +23,7 @@
 	max-width: 100%;
 	margin: 0 auto;
 	box-sizing: border-box;
+	overflow: hidden;
 	@media only screen and (max-width: $max-width) {
 		padding: 0 $pad_xs;
 	}
