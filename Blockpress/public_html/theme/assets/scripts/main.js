@@ -2,7 +2,9 @@
 import picturefill from 'picturefill';
 import cookie from './cookie.js';
 import lazyload from 'lazysizes';
-import css_grid_poly from  './css-polyfills.min';
+
+//import css_grid_poly from  './css-polyfills.min';
+import AOS from 'aos';
 
 (function($) { 
 	$(function() {
@@ -12,6 +14,7 @@ import css_grid_poly from  './css-polyfills.min';
         	$('.header__navigation').toggleClass('open');
 
         });
+        AOS.init();
 	});
 })(jQuery);
 

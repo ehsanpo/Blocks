@@ -48,8 +48,27 @@ class Blocks {
 		$obj = self::get($id);
 		if(! empty($obj)) {
 			$styles = array();
+			$styles['animation'] = "";
 			$styles['class'] = empty($data['acf_section_style_class']) ? '' : $data['acf_section_style_class'];
-
+			
+			$a = explode(' ',  $styles['class']);
+			for ($i=0; $i < count($a); $i++) { 
+				
+				if (strpos($a[$i], 'fade-up') === 0) {
+				   	$styles['animation'] .= $a[$i];
+				   	unset($a[$i]);
+				}
+				if (strpos($a[$i], 'slide-up') === 0) {
+				   	$styles['animation'] .= $a[$i];
+				   	unset($a[$i]);
+				}
+				if (strpos($a[$i], 'zoom-in-up') === 0) {
+				   	$styles['animation'] .= $a[$i];
+				   	unset($a[$i]);
+				}
+			}
+			
+			$styles['class']=  implode(" ",$a);
 			foreach($extra as $k => $v) {
 				if(empty($styles[$k])) {
 					$styles[$k] = $v;
@@ -136,7 +155,6 @@ class acf_field_sections extends acf_field {
 				$styles = array('' => __('Default Appearance', 'ws-acf-sections'));
 				$styles = apply_filters('acf/section/styles', $styles);
 				$styles = apply_filters('acf/section/styles/' . $section->id, $styles);
-
 				$group = 0;
 				$menu = array();
 				foreach($styles as $key => $name) {
@@ -314,7 +332,8 @@ class acf_field_sections extends acf_field {
 
 			$sub_data = array(
 				'acf_section' => $id,
-				'acf_section_style_class' => empty($v['style_class']) ? '' : $v['style_class']);
+				'acf_section_style_class' => empty($v['style_class']) ? '' : $v['style_class']
+			);
 
 			foreach($type->fields as $sub_field) {
 				$name = $sub_field['name'];
@@ -340,7 +359,6 @@ class acf_field_sections extends acf_field {
 			);
 			foreach($type->fields as $sub_field) {
 				$name = $sub_field['name'];
-				$data[$name] = acf_format_value($sub_value[$name], $post_id, $sub_field);
 				$data[$name] = acf_format_value($sub_value[$name], uniqid('section_acf_'), $sub_field);
 
 			}

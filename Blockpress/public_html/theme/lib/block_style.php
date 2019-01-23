@@ -12,3 +12,14 @@ $layout_styles = function ($styles) {
 
 	return $styles;
 };
+
+$layout_animation= function ($styles) {
+
+	$styles['animation'] = array(
+		'fade-up' => 'fade-up',
+		'slide-up' => 'slide-up',
+		'zoom-in-up' => 'zoom-in-up'
+	);
+
+	return $styles;
+};
