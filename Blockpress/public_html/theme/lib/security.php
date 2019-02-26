@@ -45,4 +45,20 @@ add_filter('login_errors', 'bl_custom_login_error_message');
 
 add_filter( 'xmlrpc_enabled', '__return_false' );
 
+//Disable the use of the JSON REST API on your website to anonymous users
+// Remove REST API info from head and headers
+remove_action( 'xmlrpc_rsd_apis', 'rest_output_rsd' );
+remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
+remove_action( 'template_redirect', 'rest_output_link_header', 11 );
+
+add_filter( 'rest_authentication_errors', function( $result ) {
+    if ( ! empty( $result ) ) {
+        return $result;
+    }
+    if ( ! is_user_logged_in() ) {
+        return new WP_Error( 'rest_not_logged_in', 'You are not currently logged in.', array( 'status' => 401 ) );
+    }
+    return $result;
+});
+
 

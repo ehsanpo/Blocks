@@ -23,3 +23,5 @@ $layout_animation= function ($styles) {
 
 	return $styles;
 };
+
+add_filter('acf/section/styles/content-text_image-boxed', $layout_animation);
