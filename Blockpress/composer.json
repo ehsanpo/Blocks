@@ -34,7 +34,7 @@
     "wpackagist-plugin/timber-library":"1.8.1",
     "mindkomm/timmy": "dev-master",
     "wpackagist-plugin/winsite-image-optimizer": "1.0.7",
-    "wpackagist-plugin/login-security-solution": "0.56.0",
+    "wpackagist-plugin/wordfence":"7.2.2",
     "dg/composer-cleaner": "dev-master",
     "wpackagist-plugin/password-bcrypt":"1.0.3",
     "wpackagist-plugin/classic-editor":"1.3",
