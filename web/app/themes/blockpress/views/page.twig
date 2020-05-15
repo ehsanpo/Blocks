@@ -1,0 +1,37 @@
+{% extends 'layout/base.twig' %}
+
+{% block head %}
+	{% if post.thumbnail %}
+		<meta property="og:image" content="{{post.get_field('side_image')}}" />
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	<article class=" layout--single media custom-form" style="background-image:url({{post.thumbnail}})">
+			<header class="pageheader">
+				{% if post.thumbnail %}
+					<div >
+						<div class="wrapper">
+							<div class="title"">
+								<h1>{{ post.title }}</h1>
+							</div>
+						</div>
+					</div>
+				{% else %}
+					<div class="wrapper pageheader--noimg">
+						<div class="title">
+							<h1>{{ post.title }}</h1>
+						</div>
+					</div>
+				{% endif %}
+			</header>
+			<section>
+				<div class="content">
+					{{ post.content }}
+				</div> 
+			</section>
+	</article>
+	{% if post.get_field('sections') %}
+		{{ render.sections(post.get_field('sections')) }}
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,52 @@
+{#
+/**
+ * Block Name: Example block
+ *
+ * This is the template that displays the example block.
+ */
+#}
+
+<!-- {% if is_preview %}
+    <p>I will only appear in the editor.</p>
+{% endif %} -->
+
+<div id="example-{{ block.id }}" class="wrapper">
+    <h1>{{ fields.title }}</h1>
+    <p>{{ fields.description }}</p>
+</div>
+<style type="text/css">
+
+</style>
+<script>
+(function($){
+
+    /**
+     * initializeBlock
+     *
+     * Adds custom JavaScript to the block HTML.
+     *
+     * @date    15/4/19
+     * @since   1.0.0
+     *
+     * @param   object $block The block jQuery element.
+     * @param   object attributes The block attributes (only available when editing).
+     * @return  void
+     */
+    var initializeBlock = function( $block ) {
+        //$block.find('img').doSomething();
+    }
+
+    // Initialize each block on page load (front end).
+    $(document).ready(function(){
+        // $('.testimonial').each(function(){
+        //     initializeBlock( $(this) );
+        // });
+    });
+
+    // Initialize dynamic block preview (editor).
+    if( window.acf ) {
+        window.acf.addAction( 'render_block_preview/type=example_block', initializeBlock );
+    }
+
+})(jQuery);
+</script>

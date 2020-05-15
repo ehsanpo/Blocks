@@ -1,0 +1,28 @@
+.bp-cards{
+	
+	@extend %block-pad;
+	h3{
+		margin: 0 0 var(--pad);
+	}
+	li{
+		min-width: 25%;
+		max-width: 50%;
+    }
+    .content{
+        background: var(--bg11);
+		padding : var(--pad1);
+		border-radius : 0 0 var(--border-radius) var(--border-radius) ;
+    }
+	.read-more{
+		margin-top: var(--pad1);
+		display: inline-block;
+	}
+	img{
+        display: block;
+		width: 100%;
+		border-radius : var(--border-radius) var(--border-radius) 0 0 ;
+    }
+    .grid--auto-c{
+        margin: 0;
+    }
+}

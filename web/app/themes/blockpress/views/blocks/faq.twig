@@ -1,0 +1,17 @@
+{% set id_nr = random(20) %}
+<section class="bp-block {{block.name}} {{block.className}} align{{block.align}}" style="background-color:{{fields.block_color}}">
+	<ul class="accordion-controls">
+		{% for item in fields.questions %}
+			<li {% if fields.block_animations %} data-aos="{{fields.animation_type}}" {% endif %}>
+				<h3>
+						<button class="button-cl" aria-controls="content-{{loop.index}}-{{id_nr}}" aria-expanded="false" id="accordion-control-{{loop.index}}-{{id_nr}}">
+						{% include "atoms/arrow.svg" %}
+						{{item.question}}
+
+					</button>
+				</h3>
+				<div aria-hidden="true" id="content-{{loop.index}}-{{id_nr}}" >{{item.answer}}</div>
+			</li>
+		{% endfor %}
+	</ul>
+</section>

@@ -1,0 +1,34 @@
+<section class="bp-block {{block.name}} {{block.className}} align{{block.align}} " {% if fields.block_color is not empty %} style="background-color:{{fields.block_color}}" {% endif %}>
+	{% if fields.show_filters %}
+		<section class="layout--filter ">
+			<div class="wrapper">
+				<div class="filter-handler">
+						<button class="button-cl filter-button showall" >All</button>
+						<button class="button-cl filter-button show-cat" >Category<span class="filter-val"></span></button>
+				</div>
+				<div class="filters">
+						<div class="filter-cat styled-select body-large">
+							<div class="grid-container">
+							{% for item in fields.terms %}
+								 <div class="data-filter terms-tag" data-value=".{{item.slug|lower|replace({" " : "-"})|replace({"ö" : "o"})|replace({"ä" : "a"})|replace({"å" : "a"}) }}">{{item.name}}</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	{% endif %}
+	<section class="filter-post"> 
+		<div class="wrapper">
+			<div class="grid--auto-c">
+			{% for item in fields.cases %}
+				<div class="filtred-post {% if item.size %}{{item.size}}{% endif %} {{item.project.cats}} " {% if fields.block_animations %} data-aos="{{fields.animation_type}}" data-aos-delay="{{ 100 * (loop.index - 1 ) }}"  {% endif %}>
+					<a href="{{item.project.link}}" class="lazyload" {% if item.project.thumbnail %}data-bg="{{item.project.thumbnail}}" {% endif %}>
+						<h4>{{item.project.post_title}}</h4>
+					</a>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+	</section>
+</section>

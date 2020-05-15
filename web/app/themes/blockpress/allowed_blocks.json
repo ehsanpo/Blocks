@@ -1,0 +1,11 @@
+[
+
+		"core/video",
+		"core/cover",
+        "core/html",
+        "acf/faq",
+        "acf/links",
+        "acf/text-image",
+        "acf/banner",
+        "acf/filter-post"
+]

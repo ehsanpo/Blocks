@@ -1,88 +1,70 @@
-# Blocks
-With Blocks content strategy, you no longer need to create sites with HTML in the content editor! Block is structured pieces of content that removes the need for messy markup interspersed with your content.
+# [Bedrock](https://roots.io/bedrock/)
 
-![Blocks](https://raw.githubusercontent.com/ehsanpo/Blocks/master/public_html/theme/assets/img/favicon.jpg)
+[![Packagist](https://img.shields.io/packagist/v/roots/bedrock.svg?style=flat-square)](https://packagist.org/packages/roots/bedrock)
+[![Build Status](https://img.shields.io/circleci/build/gh/roots/bedrock?style=flat-square)](https://circleci.com/gh/roots/bedrock)
+[![Follow Roots](https://img.shields.io/twitter/follow/rootswp.svg?style=flat-square&color=1da1f2)](https://twitter.com/rootswp)
 
-## Build Wordpress site with Blocks
+Bedrock is a modern WordPress stack that helps you get started with the best development tools and project structure.
 
-In each project, After requirements analysis, we will find a number of Blocks that can be used to build content on the website. Each website for its cut-through blocks that they can use in different places to display different types of content such as images, texts, slideshows ... This way, the customer can easily create pages by selecting any blocks that fit the content the customer wants show.
+Much of the philosophy behind Bedrock is inspired by the [Twelve-Factor App](http://12factor.net/) methodology including the [WordPress specific version](https://roots.io/twelve-factor-wordpress/).
 
-## Getting Started
+## Features
 
-### Webpack 4
-Install:
-`yarn install`
+* Better folder structure
+* Dependency management with [Composer](https://getcomposer.org)
+* Easy WordPress configuration with environment specific files
+* Environment variables with [Dotenv](https://github.com/vlucas/phpdotenv)
+* Autoloader for mu-plugins (use regular plugins as mu-plugins)
+* Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
 
-To develop :
-`yarn watch `
+## Requirements
 
- To build :
-`yarn build `
+* PHP >= 7.1
+* Composer - [Install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
 
-Deploy: 
-`yarn deploy`
+## Installation
 
+1. Create a new project:
+    ```sh
+    $ composer create-project roots/bedrock
+    ```
+2. Update environment variables in the `.env` file. Wrap values that may contain non-alphanumeric characters with quotes, or they may be incorrectly parsed.
+  * Database variables
+    * `DB_NAME` - Database name
+    * `DB_USER` - Database user
+    * `DB_PASSWORD` - Database password
+    * `DB_HOST` - Database host
+    * Optionally, you can define `DATABASE_URL` for using a DSN instead of using the variables above (e.g. `mysql://user:password@127.0.0.1:3306/db_name`)
+  * `WP_ENV` - Set to environment (`development`, `staging`, `production`)
+  * `WP_HOME` - Full URL to WordPress home (https://example.com)
+  * `WP_SITEURL` - Full URL to WordPress including subdirectory (https://example.com/wp)
+  * `AUTH_KEY`, `SECURE_AUTH_KEY`, `LOGGED_IN_KEY`, `NONCE_KEY`, `AUTH_SALT`, `SECURE_AUTH_SALT`, `LOGGED_IN_SALT`, `NONCE_SALT`
+    * Generate with [wp-cli-dotenv-command](https://github.com/aaemnnosttv/wp-cli-dotenv-command)
+    * Generate with [our WordPress salts generator](https://roots.io/salts.html)
+3. Add theme(s) in `web/app/themes/` as you would for a normal WordPress site
+4. Set the document root on your webserver to Bedrock's `web` folder: `/path/to/site/web/`
+5. Access WordPress admin at `https://example.com/wp/wp-admin/`
 
-### Install dependencies
+## Documentation
 
-First you will need to install [Composer](https://getcomposer.org/) globally. Then run `composer install` in the same folder as this readme.
+Bedrock documentation is available at [https://roots.io/bedrock/docs/](https://roots.io/bedrock/docs/).
 
-### Configuration
+## Contributing
 
-Configuration is done via a file named `.env` that should exist in the same folder as this readme. Create the file by starting with the `dotenv.example`.
+Contributions are welcome from everyone. We have [contributing guidelines](https://github.com/roots/guidelines/blob/master/CONTRIBUTING.md) to help you get started.
 
-For development use `development` as your environment and otherwise use `production`.
+## Bedrock sponsors
 
-### Server configuration
+Help support our open-source development efforts by [becoming a patron](https://www.patreon.com/rootsdev).
 
-Point your server to the subfolder `public_html`.
+<a href="https://kinsta.com/?kaid=OFDHAJIXUDIV"><img src="https://cdn.roots.io/app/uploads/kinsta.svg" alt="Kinsta" width="200" height="150"></a> <a href="https://k-m.com/"><img src="https://cdn.roots.io/app/uploads/km-digital.svg" alt="KM Digital" width="200" height="150"></a> <a href="https://nestify.io/?utm_source=roots&utm_medium=banner&utm_campaign=footer"><img src="https://cdn.roots.io/app/uploads/nestify.svg" alt="Nestify" width="200" height="150"></a>
 
-### Theme
+## Community
 
-The theme is located in `public_html/theme`.
+Keep track of development and community news.
 
-
-## Working with the project
-
-The theme uses [Timber](https://github.com/jarednova/timber/wiki) to use Twig templates. The class `Site` in `functions.php` can and should be used for most configuration of the theme.
-
-### Advanced Custom Fields
-
-ACF is included in the theme, but editing of fields in the production environment is disabled. Do not rely on the database for storing of fields. All fields must be transferred to `functions.php` before committing functions that rely on them.
-
-### Page Composer
-
-The theme includes Page Composer to allow pages to be composed of blocks. Blocks are added in the theme subfolder `blocks` with views in `views/blocks`. Add any blocks that should be active to `Site` in `functions.php`.
-
-### Composer dependencies
-
-Edit `composer.json` for dependencies. For plugins that are required for the site function add them both to the `require` section and then also under `installer-paths` under the `mu-plugins` section.
-
-To change the version of ACF you need to be update three places, under the package defined in `repository` for version and in the URL, and under `require`.
-
-## Using bash script to create new Blocks
-
-To be able to run the script first run chmod `u+x wp.sh` then run `./wp.sh` blockname to create new blocks.
-
-The script will create 3 files:
-
-PHP file in /public_html/theme/blocks/
-
-Twig file in /public_html/theme/views/blocks/
-
-CSS file in /public_html/theme/assets/sass/blocks/
-
-
-## Deploying
-
-This project uses [Flightplan](https://github.com/pstadler/flightplan) to manage deployment to servers. Install it globally via `npm`:
-
-`npm install -g flightplan`
-
-And then locally in this folder: `npm install` to fetch the local Flightplan instance.
-
-Run `fly init:ENVIRONMENT` to setup the server and then start using `fly deploy:ENVIRONMENT`.
-
-
-## Dev Stack: 
-[Timber](https://github.com/timber/timber),  [Timmy](https://github.com/mindkomm/timmy), [Composer](https://getcomposer.org/), [Bedrock autoloader](https://roots.io/bedrock/docs/mu-plugins-autoloader/), [ACF](https://www.advancedcustomfields.com/), [Flightplan](https://github.com/pstadler/flightplan) 
+* Participate on the [Roots Discourse](https://discourse.roots.io/)
+* Follow [@rootswp on Twitter](https://twitter.com/rootswp)
+* Read and subscribe to the [Roots Blog](https://roots.io/blog/)
+* Subscribe to the [Roots Newsletter](https://roots.io/subscribe/)
+* Listen to the [Roots Radio podcast](https://roots.io/podcast/)

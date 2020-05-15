@@ -1,0 +1,8 @@
+.pageheader {
+	h1 {
+		padding: 16vh 0;
+	}
+	.media {
+		@extend %bg_cover;
+	}
+}

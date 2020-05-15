@@ -1,0 +1,41 @@
+<section class="bp-block {{block.name}} {{block.className}} align{{block.align}}" style="background-color:{{fields.block_color}}">
+	<div class="wrapper">
+		<div class="grid--auto-c">
+			{% for item in fields.links %}
+				<div class="link">
+					{% if item.link_type == 'url' %}
+						<a target="_blank" rel="noreferrer" href="{{ item.link_url }}">
+					{% else %}
+						<a href="{{ item.link_page }}" href="{{ item.link_url }}" >
+					{% endif %}
+					{% if item.icon %}
+						{% if item.is_icon %}
+							<img {{item.icon|get_timber_image_responsive('news') }} class="is_icon" {% if fields.block_animations %} data-aos="{{fields.animation_type}}" data-aos-delay="{{loop.index * 100  }}" {% endif %} >
+						{% else %}
+							<img {{item.icon|get_timber_image_responsive('news') }} {% if fields.block_animations %} data-aos="{{fields.animation_type}}" data-aos-delay="{{loop.index * 100  }}" {% endif %} >
+						{% endif %}
+					{% endif %}
+					</a>
+					<div class="content" {% if fields.block_animations %} data-aos="{{fields.animation_type}}" data-aos-delay="{{  loop.index * 100  }}" {% endif %}>
+						{% if item.link_type == 'url' %}
+							<a target="_blank" rel="noreferrer" href="{{ item.link_url }}" >
+						{% else %}
+							<a href="{{ item.link_page }}" >
+						{% endif %}
+							<h3>{{item.title}}</h3>
+						</a>
+						{{item.body_text}}
+						{% if item.link_text %}
+							{% if item.link_type == 'url' %}
+								<a target="_blank" rel="noreferrer" href="{{ item.link_url }}" class="btn">{{ item.link_text }}</a>
+							{% endif %}
+							{% if item.link_type == 'page' %}
+								<a href="{{ item.link_page }}" class="btn">{{ item.link_text }}</a>
+							{% endif %}
+						{% endif %}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>

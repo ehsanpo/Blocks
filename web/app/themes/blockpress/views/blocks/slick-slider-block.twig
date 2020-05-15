@@ -1,0 +1,14 @@
+<div class="slick-slider">
+    <div class="site">
+        <h4 class="quoteUnderline">{{ fields.title_for_slider }}</h4>
+        <div class="slider" style="background:#161b1c;">
+            {% for item in fields.quotes %}
+            <div class="slick-slide">
+                <div>
+                    <h5>"{{item.quote}}"</h5>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

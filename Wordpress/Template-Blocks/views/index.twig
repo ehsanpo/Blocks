@@ -1,7 +1,0 @@
-{% extends 'layout/base.twig' %}
-
-{% block content %}
-	{% for post in posts %}
-		<a href="{{ post.link }}">{{ post.post_title }}</a>
-	{% endfor %}
-{% endblock %}

@@ -1,0 +1,3 @@
+wp -infopath: web/wp
+server:
+  docroot: web

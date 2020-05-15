@@ -1,9 +1,29 @@
-Wordpress/public_html/*
-Wordpress/node_modules
-Wordpress/vendor
-Wordpress/Template-Blocks/assets/dist
-yarn.lock
-composer.lock
+# Application
+web/app/plugins/*
+!web/app/plugins/.gitkeep
+web/app/mu-plugins/*/
+web/app/upgrade
+web/app/uploads/*
+!web/app/uploads/.gitkeep
+
+node_modules/
+
+# WordPress
+web/wp
+web/.htaccess
+
+# Logs
+*.log
+
+# Dotenv
 .env
-package-lock.json
-Blockpress/public_html/site/themes/twentynineteen
+.env.*
+!.env.example
+
+# Composer
+/vendor
+
+# WP-CLI
+wp-cli.local.yml
+yarn.lock
+
