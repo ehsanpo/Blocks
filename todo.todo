@@ -1,0 +1,29 @@
+
+Blocks:
+    ✔ Image & text @done(20-05-12 00:28)
+    ✔ link-block @done(20-05-11 00:10)
+    ✔ Banner-block @done(20-05-15 08:57)
+    ✔ Filter-post @done(20-05-15 10:49)
+    ☐ Article Block
+    ☐ Slidr-block
+    ✔ child theme @done(20-05-16 17:06)
+    ☐ responsive image
+    ☐ css hotload
+    ☐ css no load- push http2
+    ✔ svg icons change color on dar/light mode @done(20-05-16 17:26)
+    ☐ Dummy generator
+            wp post generate --count=10 --post_type=page --post_date=1999-01-04
+            curl http://loripsum.net/api/5 | wp post generate --post_content --count=10
+
+EXPORT:
+    ☐ Copy 
+        ☐ plugins
+        ☐ theme
+        ☐ vendor
+
+
+Block-gen:
+    ☐ Add Block to function add allowed blocks.
+    ☐ Clean blocks and add
+    ☐ add empty block generator
+    

@@ -112,10 +112,10 @@ html.transition *:after {
 
 /* Media querys */
 /* Block padding */
-.bp-cards, .bp-block.bp-text-image.add-padding, .bp-banner {
+.bp-cards, .bp-block.bp-text-image.add-padding, .bp-banner, .article-block {
   padding: var(--block_pad) 0; }
   @media only screen and (min-width: 60em) {
-    .bp-cards, .bp-block.bp-text-image.add-padding, .bp-banner {
+    .bp-cards, .bp-block.bp-text-image.add-padding, .bp-banner, .article-block {
       padding: var(--block_pad) 0; } }
 
 /* background cover */
@@ -1734,6 +1734,12 @@ https://sharingbuttons.io/
   -webkit-transform: perspective(2500px) rotateX(0);
           transform: perspective(2500px) rotateX(0); }
 
+.block-editor__typewriter {
+  background: var(--bg1); }
+
+.block-editor__typewriter [data-aos] {
+  opacity: 1; }
+
 .app .style {
   margin: 0 auto;
   margin-top: 32px; }
@@ -1966,4 +1972,24 @@ https://sharingbuttons.io/
   .bp-filter-post .filter-post a {
     display: block;
     text-align: center; }
+
+.article-block h3 {
+  margin: 0 0 12px; }
+
+.article-block li {
+  background: #fff;
+  border-radius: 6px 6px 0 0;
+  min-width: 25%;
+  max-width: 50%; }
+
+.article-block .readmore {
+  margin-top: 24px;
+  display: inline-block; }
+
+.article-block img {
+  display: block; }
+
+.article-block .grid--auto-c {
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap; }
 

@@ -3,10 +3,10 @@
 		<div class="grid--2 {% if fields.image_on_left %}image-on-left{% endif %}">
 			<div class="itb-image lazyload" data-bg="{{fields.image|resize(1400)}}"></div>
 			<div class="itb-text">
-				<h2 {% if fields.block_animations %} data-aos="{{fields.animation_type}}" {% endif %}>{{fields.headline}}</h2>
-				<div{% if fields.block_animations %} data-aos="{{fields.animation_type}}" data-aos-delay="100" {% endif %}>{{fields.body_text}}</div>
+				<h2 {% if not is_preview and fields.block_animations %} data-aos="{{fields.animation_type}}" {% endif %}>{{fields.headline}}</h2>
+				<div{% if not is_preview and fields.block_animations %} data-aos="{{fields.animation_type}}" data-aos-delay="100" {% endif %}>{{fields.body_text}}</div>
 				{% if fields.stn_link %}
-				<div class="itb-footer" {% if fields.block_animations %} data-aos="{{fields.animation_type}}"  data-aos-delay="200" {% endif %}>
+				<div class="itb-footer" {% if not is_preview and fields.block_animations %} data-aos="{{fields.animation_type}}"  data-aos-delay="200" {% endif %}>
 					<ul>
 						{% for item in fields.stn_link %}
 							{% if item.link_type == 'url' %}
@@ -27,3 +27,14 @@
 		</div>
 	</div>
 </section>
+{% if is_preview %}
+<script>
+var e = document.getElementsByClassName('lazyload');
+for (var i = 0; i < e.length; ++i) {
+	var bg = e[i].getAttribute("data-bg");
+	if (bg) {
+		e[i].style.backgroundImage = "url(" + bg + ")";
+	}
+}
+</script>
+{% endif %}

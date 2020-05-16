@@ -3,7 +3,7 @@
 		{% if fields.title %}<h2>{{fields.title}}</h2>{% endif %}
 		<div class="grid--auto-c">
 			{% for item in fields.banners %}
-				<div  {% if fields.block_animations %} data-aos="{{fields.animation_type}}" data-aos-delay="{{ 100 * (loop.index - 1 ) }}"  {% endif %}>
+				<div  {% if  not is_preview and fields.block_animations %} data-aos="{{fields.animation_type}}" data-aos-delay="{{ 100 * (loop.index - 1 ) }}"  {% endif %}>
 				<a href="{{item.link}}" class="lazyload" data-bg="{{item.bild|resize(660)}} " >
 					<div class="wrapper--banner">
 						<h3>{{item.text}}</h3>
@@ -15,3 +15,14 @@
 		</div>
 	</div>
 </section>
+{% if is_preview %}
+<script>
+var e = document.getElementsByClassName('lazyload');
+for (var i = 0; i < e.length; ++i) {
+	var bg = e[i].getAttribute("data-bg");
+	if (bg) {
+		e[i].style.backgroundImage = "url(" + bg + ")";
+	}
+}
+</script>
+{% endif %}

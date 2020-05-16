@@ -2,7 +2,7 @@
 <section class="bp-block {{block.name}} {{block.className}} align{{block.align}}" style="background-color:{{fields.block_color}}">
 	<ul class="accordion-controls">
 		{% for item in fields.questions %}
-			<li {% if fields.block_animations %} data-aos="{{fields.animation_type}}" {% endif %}>
+			<li {% if  not is_preview and fields.block_animations %} data-aos="{{fields.animation_type}}" {% endif %}>
 				<h3>
 						<button class="button-cl" aria-controls="content-{{loop.index}}-{{id_nr}}" aria-expanded="false" id="accordion-control-{{loop.index}}-{{id_nr}}">
 						{% include "atoms/arrow.svg" %}

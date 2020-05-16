@@ -5,6 +5,7 @@ class faq_block {
 		$this->id = "faq";
 		$this->name = __("FAQ", "bl");
 		$this->description = __("A custom example block.", "bl");
+		$this->loader = new bp_autoload();
 		$this->define();
 		$this->register();
 	}
@@ -136,7 +137,7 @@ class faq_block {
 
 // Set array of color classes (for block editor) and hex codes (from ACF)
 
-			$matches = bp_get_theme_colors();
+			$matches = $this->loader->bp_get_theme_colors();
 
 			$bp_block_colors = [
 // Change these to match your color class (gutenberg) and hex codes (acf)
@@ -160,7 +161,7 @@ class faq_block {
 		}
 
 // Render the block.
-		Timber::render("blocks/" . $this->id . ".twig", $context);
+		Timber::render("blocks/bp-" . $this->id . ".twig", $context);
 
 	}
 

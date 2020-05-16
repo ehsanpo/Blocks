@@ -10,13 +10,13 @@
 					{% endif %}
 					{% if item.icon %}
 						{% if item.is_icon %}
-							<img {{item.icon|get_timber_image_responsive('news') }} class="is_icon" {% if fields.block_animations %} data-aos="{{fields.animation_type}}" data-aos-delay="{{loop.index * 100  }}" {% endif %} >
+							<img {{item.icon|get_timber_image_responsive('news') }} class="is_icon" {% if  not is_preview and fields.block_animations %} data-aos="{{fields.animation_type}}" data-aos-delay="{{loop.index * 100  }}" {% endif %} >
 						{% else %}
-							<img {{item.icon|get_timber_image_responsive('news') }} {% if fields.block_animations %} data-aos="{{fields.animation_type}}" data-aos-delay="{{loop.index * 100  }}" {% endif %} >
+							<img {{item.icon|get_timber_image_responsive('news') }} {% if  not is_preview and fields.block_animations %} data-aos="{{fields.animation_type}}" data-aos-delay="{{loop.index * 100  }}" {% endif %} >
 						{% endif %}
 					{% endif %}
 					</a>
-					<div class="content" {% if fields.block_animations %} data-aos="{{fields.animation_type}}" data-aos-delay="{{  loop.index * 100  }}" {% endif %}>
+					<div class="content" {% if  not is_preview and fields.block_animations %} data-aos="{{fields.animation_type}}" data-aos-delay="{{  loop.index * 100  }}" {% endif %}>
 						{% if item.link_type == 'url' %}
 							<a target="_blank" rel="noreferrer" href="{{ item.link_url }}" >
 						{% else %}

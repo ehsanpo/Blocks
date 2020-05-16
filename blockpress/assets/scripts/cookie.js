@@ -12,7 +12,6 @@ function createCookie(name,value,days,path) {
  * Read cookie
  * @param string name
  * @returns {*}
- * @see http://www.quirksmode.org/js/cookies.html
  */
 function readCookie(name) {
     var nameEQ = name + "=";
@@ -26,26 +25,26 @@ function readCookie(name) {
 }
 var cookieMessage = document.getElementById('cookie-message');
 
-var cookie = readCookie('seen-cookie-message');
-if (cookie != null && cookie == 'yes') {
-    cookieMessage.style.display = 'none';
-} else {
-    cookieMessage.style.display = 'block';
-}
-// Set/update cookie
-var cookieExpiry = cookieMessage.getAttribute('data-cookie-expiry');
-if (cookieExpiry == null) {
-    cookieExpiry = 30;
-}
-var cookiePath = cookieMessage.getAttribute('data-cookie-path');
-if (cookiePath == null) {
-    cookiePath = "/";
-}
+if (typeof(cookieMessage) != 'undefined' && cookieMessage != null){
 
-
-$(document).on('click','.cookie .btn',function(e){
-     createCookie('seen-cookie-message','yes',cookieExpiry,cookiePath);
-      //cookieMessage.style.display = 'none';
-    $(cookieMessage).fadeOut(350);
-   
-});
+    var cookie = readCookie('seen-cookie-message');
+    if (cookie != null && cookie == 'yes') {
+        cookieMessage.style.display = 'none';
+    } else {
+        cookieMessage.style.display = 'block';
+    }
+    // Set/update cookie
+    var cookieExpiry = cookieMessage.getAttribute('data-cookie-expiry');
+    if (cookieExpiry == null) {
+        cookieExpiry = 30;
+    }
+    var cookiePath = cookieMessage.getAttribute('data-cookie-path');
+    if (cookiePath == null) {
+        cookiePath = "/";
+    }
+    $(document).on('click','.cookie .btn',function(e){
+         createCookie('seen-cookie-message','yes',cookieExpiry,cookiePath);
+          //cookieMessage.style.display = 'none';
+        $(cookieMessage).fadeOut(350);
+    });
+}

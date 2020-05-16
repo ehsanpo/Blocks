@@ -1,5 +1,4 @@
 [
-
 		"core/video",
 		"core/cover",
         "core/html",
@@ -7,5 +6,6 @@
         "acf/links",
         "acf/text-image",
         "acf/banner",
-        "acf/filter-post"
+        "acf/filter-post",
+        "acf/article"
 ]
