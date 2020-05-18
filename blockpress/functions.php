@@ -4,10 +4,15 @@
  *
  * @package  WordPress
  * @subpackage  Blockpress
- * @since   Blockpress 0.1
+ * @since   Blockpress 0.2
  */
 
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'autoloader.php';
+if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+	require_once __DIR__ . '/vendor/autoload.php';
+	$is_vanilla = true;
+}
+
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'autoload.php';
 
 class StarterSite extends Timber\Site {
 
@@ -48,7 +53,15 @@ class StarterSite extends Timber\Site {
         // Customize the url setting to fix incorrect asset URLs.
         add_filter('acf/settings/url', array($this, 'my_acf_settings_url'));
         // (Optional) Hide the ACF admin menu item.
-        add_filter('acf/settings/show_admin', array($this, 'my_acf_settings_show_admin'));
+		add_filter('acf/settings/show_admin', array($this, 'my_acf_settings_show_admin'));
+		//styleguide menu
+		add_action('admin_menu', array($this ,'styleguide_admin_menu'));
+
+		/**
+		* add external link to Tools area
+		*/
+
+
 
     }
 
@@ -71,11 +84,10 @@ class StarterSite extends Timber\Site {
      */
     public function add_to_context($context) {
 
-
         $context['site'] = $this;
-		$context['main_css'] = $this->loader->MAIN_CSS;
-		
-        $context['critical'] = str_replace(' ', '', $this->loader->CRITICAL );
+        $context['main_css'] = $this->loader->MAIN_CSS;
+
+        $context['critical'] = str_replace(' ', '', $this->loader->CRITICAL);
         $context['options'] = get_fields('option');
         $context['primary_menu'] = new Timber\Menu('primary');
         $context['ajax_url'] = admin_url('admin-ajax.php');
@@ -85,15 +97,14 @@ class StarterSite extends Timber\Site {
 
     private function setup_scripts() {
 
-		add_action( 'enqueue_block_editor_assets', function() {
-            wp_enqueue_style( 'main_css', $this->loader->MAIN_CSS , false, '1.0', 'all' );
-            wp_enqueue_style( 'theme_critical', get_template_directory_uri() . '/assets/dist/' . $this->loader->CRITICAL , false, '1.0', 'all' );
+        add_action('enqueue_block_editor_assets', function () {
+            wp_enqueue_style('main_css', $this->loader->MAIN_CSS, false, '1.0', 'all');
+            wp_enqueue_style('theme_critical', get_template_directory_uri() . '/assets/dist/' . $this->loader->CRITICAL, false, '1.0', 'all');
 
-        } );
+        });
         add_action('wp_enqueue_scripts', function () {
             wp_enqueue_script('theme', $this->loader->MAIN_JS, array(), '1.0.0', true);
         });
-        
 
     }
     public function theme_supports() {
@@ -172,7 +183,7 @@ class StarterSite extends Timber\Site {
         return $this->loader->BP_ACF_URL;
     }
     public function my_acf_settings_show_admin($show_admin) {
-        return false;
+        return true;
     }
     public function bp_allowed_block_types($allowed_blocks) {
 
@@ -182,7 +193,6 @@ class StarterSite extends Timber\Site {
             $return[] = $value;
         }
         return $return;
-
     }
 
     public function bp_color_setup() {
@@ -200,7 +210,6 @@ class StarterSite extends Timber\Site {
                 'color' => $matches[0][$i],
             );
         }
-
         // Editor Color Palette
         add_theme_support('editor-color-palette', array(
             $colors,
@@ -216,10 +225,10 @@ class StarterSite extends Timber\Site {
      */
     public function bp_acf_color_palette() {
 
-		$matches = $this->loader->bp_get_theme_colors();
+        $matches = $this->loader->bp_get_theme_colors();
 
         $matches = array_slice($matches[0], 0, 8);
-		$matches = json_encode($matches);
+        $matches = json_encode($matches);
 
         ?>
 		<script type="text/javascript">
@@ -231,7 +240,14 @@ class StarterSite extends Timber\Site {
 				});
 			})(jQuery);
 		</script>
-	<?php }
+	<?php
+	}
+	public function styleguide_admin_menu() {
+		global $submenu, $is_vanilla;
+		$url =  $is_vanilla ? '/wp-content/themes/blockpress/assets/dist/Styleguide.html' : '/app/themes/blockpress/assets/dist/Styleguide.html';
+		$submenu['themes.php'][] = array('Styleguide', 'manage_options', $url);
+	}
+
 }
 
 new StarterSite();

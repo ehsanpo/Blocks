@@ -17,12 +17,14 @@ class bp_autoload {
 
     }
     public function setup() {
+
+		require_once $this->ComposerVendors . 'autoload.php';
 		$this->load_acf();
 		$this->load_inc();
 		$this->timber();
 		$this->load_blocks();
 		$this->load_assets();
-		
+
 	}
 	private function timber(){
 
@@ -58,8 +60,8 @@ class bp_autoload {
 		require $this->BP_ASSETS;
 		$this->MAIN_CSS = get_template_directory_uri() . '/assets/dist/' . $main_css;
 		$this->CRITICAL = $critical;
-		$this->MAIN_JS = $main_js;
-		
+		$this->MAIN_JS =  get_template_directory_uri() . '/assets/dist/' . $main_js;
+
 	}
 	public function bp_get_theme_colors() {
 
@@ -67,6 +69,6 @@ class bp_autoload {
 		$matches = [];
 		preg_match_all('/#(?:[0-9a-fA-F]{6})/', $css, $matches);
 		return $matches;
-	
+
 	}
 }

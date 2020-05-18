@@ -1,15 +1,4 @@
 <?php
-/**
- * Perform cleanup of some WordPress features. This is used to make
- * the site experience a bit better, customize as needed.
- */
-
-if (WP_ENV != 'development') {
-	// Remove Custom Post Types unless we are developing
-	add_action('admin_menu', function () {
-		remove_menu_page('edit.php?post_type=acf-field-group');
-	});
-}
 
 //remove wp-embed.min.js
 add_action('init', function () {

@@ -1,14 +1,14 @@
 /* Variables
- ========================================================================== 
+ ==========================================================================
 1.Pick Primary colors
  https://www.colorsandfonts.com/color-palettes.html
 
 2. Add schema
- https://hihayk.github.io/scale/ 
+ https://hihayk.github.io/scale/
 
 3.Generate UX color
  https://colors.eva.design/
- 
+
  */
 
  html{
@@ -49,7 +49,7 @@
    --n3: #666a6d;
    --n4: #212122;
 
-   //Padding 
+   //Padding
    --pad0: 8px;
    --pad : 16px;
    --pad1: 24px;
@@ -60,8 +60,11 @@
 
    --block_pad : 32px;
    --border-radius : 8px;
-   --overlay: rgba(0,0,0,0.5);
-  
+	--overlay: rgba(0,0,0,0.5);
+	//--box-shadow: 6px 6px 12px var(--bg11),-6px -6px 12px var(--bg10);
+	--box-shadow: 6px 6px 12px var(--bg11),-6px -6px 12px rgba(var(--bg10), 0.8) ;
+
+
 }
 html[data-theme='dark']{
 
@@ -83,7 +86,7 @@ html.transition *:after {
   transition: cubic-bezier(0.68, -0.55, 0.27, 01.55) 420ms!important;
   transition-delay: 0!important;
 }
- 
+
 //Grid
 $max-width: 1128px;
 $max-width_m: 720px;

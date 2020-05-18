@@ -1,0 +1,22 @@
+<section class="bp-block {{block.name}} {{block.className}} align{{block.align}} " {% if fields.block_color is not empty %} style="background-color:{{fields.block_color}}" {% endif %} {% if fields.image %} style="background-image:url({{fields.image}})" {% endif %}>
+
+		<h2>{{fields.cta_headline}}</h2>
+		<div class="box-content">{{fields.cta_subheadline}}</div>
+		<div class="itb-footer">
+			<ul>
+				{% for item in fields.stn_link %}
+					{% if item.link_type == 'url' %}
+						<li>
+							<a href="{{ item.link_url }}" class="btn">{{ item.link_text }}</a>
+						</li>
+					{% endif %}
+					{% if item.link_type == 'page' %}
+						<li>
+							<a href="{{ item.link_page }}" class="btn">{{ item.link_text }}</a>
+						</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+
+</section>

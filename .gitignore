@@ -27,3 +27,4 @@ web/.htaccess
 wp-cli.local.yml
 yarn.lock
 
+blockpress/assets/dist

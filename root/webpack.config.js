@@ -1,5 +1,4 @@
 const path = require("path");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -8,30 +7,35 @@ const webpackDashboard = require("webpack-dashboard/plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanObsoleteChunks = require("webpack-clean-obsolete-chunks");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
-require("dotenv").config();
-
-config = {
-	/**
-	 * Define your assets path here. Assets path are your theme
-	 * path without host.
-	 * E.g. your theme path is http://test.dev/wp-content/themes/
-	 * then your assets path is /wp-content/themes/
-	 *
-	 * This is for Webpack that it can handle assets relative path right.
-	 */
-	assetsPath: "./web/app/themes/blockpress/assets/",
-
-	/**
-	 * Define here your dev server url here.
-	 *
-	 * This is for Browsersync.
-	 */
-	devUrl: process.env.DEVURL,
-};
+const FaviconWebpackPlugin = require("favicons-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+require('dotenv').config();
 
 module.exports = (env, argv) => {
-	const devMode = argv.mode !== "production";
+
+	const config = {
+		/**
+		 * Define your assets path here. Assets path are your theme
+		 * path without host.
+		 * E.g. your theme path is http://test.dev/wp-content/themes/
+		 * then your assets path is /wp-content/themes/
+		 *
+		 * This is for Webpack that it can handle assets relative path right.
+		 */
+		assetsPath: "./web/app/themes/blockpress/assets/",
+
+		/**
+		 * Define here your dev server url here.
+		 *
+		 * This is for Browsersync.
+		 */
+		devUrl: process.env.DEVURL,
+		fontPath: argv.export ? "/wp-content/themes/blockpress/assets/build/fonts/" : "/app/themes/blockpress/assets/fonts/"
+	};
+
+	const devMode = process.env.WEBPACK_MODE !== "production";
+
 	return {
 		entry: {
 			main: config.assetsPath + "scripts/main.js",
@@ -45,29 +49,12 @@ module.exports = (env, argv) => {
 					//root: path.resolve(__dirname, config.assetsPath),
 					verbose: true,
 				}),
-				new UglifyJsPlugin({
-					uglifyOptions: {
-						output: {
-							comments: false, // remove comments
-						},
-						warnings: false,
-						compress: {
-							inline: false,
-							unused: true,
-						},
-						mangle: true, // Note `mangle.properties` is `false` by default.
-						ie8: false,
-						keep_fnames: true,
-						comments: false,
-					},
-					cache: true,
-					parallel: true,
-					sourceMap: false, // set to true if you want JS source maps
-				}),
+				new TerserPlugin(),
 				new OptimizeCSSAssetsPlugin({}),
 			],
 		},
 		plugins: [
+			new FriendlyErrorsWebpackPlugin(),
 			new webpackDashboard(),
 			new BrowserSyncPlugin({
 				host: "localhost",
@@ -80,7 +67,7 @@ module.exports = (env, argv) => {
 					path.resolve(__dirname, config.assetsPath + "/**/*.twig"),
 				],
 			}),
-			new FaviconsWebpackPlugin({
+			new FaviconWebpackPlugin({
 				logo: path.resolve(
 					__dirname,
 					config.assetsPath + "/img/favicon.png"
@@ -157,17 +144,25 @@ module.exports = (env, argv) => {
 					],
 				},
 				{
-					test: /\.(woff|woff2|eot|ttf)$/,
-					loader: "url-loader?limit=100000",
+					test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+					use: [
+					  {
+						loader: 'file-loader',
+						options: {
+						  name: '[name].[ext]',
+						  outputPath: config.fontPath
+						}
+					  }
+					]
 				},
 				{
-					test: /\.(png|svg)$/,
+					test: /\.(png)$/,
 					use: {
 						loader: "url-loader",
 						options: {
 							limit: 100000,
 							name:
-								"/web/themes/blockpress/assets/fonts/[name].[ext]",
+								"/web/themes/blockpress/assets/img/[name].[ext]",
 						},
 					},
 				},

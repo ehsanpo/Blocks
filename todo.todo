@@ -4,18 +4,44 @@ Blocks:
     ✔ link-block @done(20-05-11 00:10)
     ✔ Banner-block @done(20-05-15 08:57)
     ✔ Filter-post @done(20-05-15 10:49)
-    ☐ Article Block
-    ☐ Slidr-block
+    ✔ Article Block @done(20-05-17 21:52)
+    ✔ Slidr-bock @done(20-05-18 12:39)
+    ✔ CTA - Block @done(20-05-18 09:35)
+    ✔ tesomony-block @done(20-05-18 12:39)
     ✔ child theme @done(20-05-16 17:06)
     ☐ responsive image
     ☐ css hotload
-    ☐ css no load- push http2
+    ✔ css no load- push http2 @done(20-05-18 12:43)
     ✔ svg icons change color on dar/light mode @done(20-05-16 17:26)
     ☐ Dummy generator
             wp post generate --count=10 --post_type=page --post_date=1999-01-04
             curl http://loripsum.net/api/5 | wp post generate --post_content --count=10
 
 EXPORT:
+    yarn export
+    mkdir temp
+    wp core download --path=temp
+    cp -r web/app/themes/blockpress  temp/wp-content/themes 
+    cp -r web/app/themes/blockpress-child  temp/wp-content/themes
+    cp -r vendor temp/wp-content/themes/blockpress
+   
+sed '5 c\ 
+$this->ComposerVendors = __DIR__ . "/vendor/";
+
+' autoloader.php > SomeFile3.txt  
+
+
+git clone -b $(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/mindkomm/timmy/releases/latest)) https://github.com/mindkomm/timmy.git
+
+
+
+cd temp/wp-content/plugins
+yes '' | composer  init --name blockpress/vanliapress
+composer require timber/timber
+composer require mindkomm/timmy
+
+
+
     ☐ Copy 
         ☐ plugins
         ☐ theme

@@ -1,24 +1,25 @@
 <?php
 
-class bp_banner_block extends bp_blocks {
+class bp_testimonials_block extends bp_blocks {
 	function __construct() {
-		$this->id = "banner";
-		$this->name =  __("Banner", "bl");
+		$this->id = "testimonials";
+		$this->name = "Testimonials";
 		$this->description = __("A custom example block.", "bl");
 
 		$this->define();
 		$this->register();
 	}
+
 	function define() {
 		acf_add_local_field_group(array(
-			'key' => 'group_5d19bedbadf06',
+			'key' => 'group_5d19bedbadfbb',
 			'title' => $this->id,
 			'fields' => array(
 				array(
-					'key' => 'field_7afd3f3a59f88',
-					'label' => 'Title',
-					'name' => 'title',
-					'_name' => 'title',
+					'key' => 'field_5bfea3c871521',
+					'label' => 'Headline',
+					'name' => 'headline',
+					'_name' => 'headline',
 					'type' => 'text',
 					'instructions' => '',
 					'required' => 0,
@@ -33,14 +34,32 @@ class bp_banner_block extends bp_blocks {
 					'prepend' => '',
 					'append' => '',
 					'maxlength' => '',
-					'readonly' => 0,
-					'disabled' => 0,
 				),
 				array(
-					'key' => 'field_5a79b736d8ad1',
-					'label' => 'Banners',
-					'name' => 'banners',
-					'_name' => 'banners',
+					'key' => 'field_5bfea3ce71522',
+					'label' => 'Description',
+					'name' => 'description',
+					'_name' => 'description',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+				),
+				array(
+					'key' => 'field_5bfea3e271523',
+					'label' => 'Testimonials',
+					'name' => 'testimonials',
+					'_name' => 'testimonials',
 					'type' => 'repeater',
 					'instructions' => '',
 					'required' => 0,
@@ -51,16 +70,16 @@ class bp_banner_block extends bp_blocks {
 						'id' => '',
 					),
 					'collapsed' => '',
-					'min' => '',
-					'max' => '',
+					'min' => 0,
+					'max' => 0,
 					'layout' => 'table',
-					'button_label' => 'Lägg till rad',
+					'button_label' => '',
 					'sub_fields' => array(
 						array(
-							'key' => 'field_5a79b747d8ad2',
-							'label' => 'bild',
-							'name' => 'bild',
-							'_name' => 'bild',
+							'key' => 'field_5bfea3f971524',
+							'label' => 'Image',
+							'name' => 'image',
+							'_name' => 'image',
 							'type' => 'image',
 							'instructions' => '',
 							'required' => 0,
@@ -71,7 +90,7 @@ class bp_banner_block extends bp_blocks {
 								'id' => '',
 							),
 							'return_format' => 'url',
-							'preview_size' => 'thumbnail',
+							'preview_size' => 'body',
 							'library' => 'all',
 							'min_width' => '',
 							'min_height' => '',
@@ -82,10 +101,10 @@ class bp_banner_block extends bp_blocks {
 							'mime_types' => '',
 						),
 						array(
-							'key' => 'field_5a79b785d8ad3',
-							'label' => 'text',
-							'name' => 'text',
-							'_name' => 'text',
+							'key' => 'field_5bfea42271525',
+							'label' => 'Name',
+							'name' => 'name',
+							'_name' => 'name',
 							'type' => 'text',
 							'instructions' => '',
 							'required' => 0,
@@ -100,15 +119,13 @@ class bp_banner_block extends bp_blocks {
 							'prepend' => '',
 							'append' => '',
 							'maxlength' => '',
-							'readonly' => 0,
-							'disabled' => 0,
 						),
 						array(
-							'key' => 'field_5a79b78ad8ad4',
-							'label' => 'Link',
-							'name' => 'link',
-							'name' => 'link',
-							'type' => 'page_link',
+							'key' => 'field_5bfea43d71528',
+							'label' => 'Description',
+							'name' => 'description',
+							'_name' => 'description',
+							'type' => 'text',
 							'instructions' => '',
 							'required' => 0,
 							'conditional_logic' => 0,
@@ -117,12 +134,31 @@ class bp_banner_block extends bp_blocks {
 								'class' => '',
 								'id' => '',
 							),
-							'post_type' => array(
+							'default_value' => '',
+							'placeholder' => '',
+							'prepend' => '',
+							'append' => '',
+							'maxlength' => '',
+						),
+						array(
+							'key' => 'field_5bfea4da71529',
+							'label' => 'Testimonial',
+							'name' => 'testimonial',
+							'_name' => 'testimonial',
+							'type' => 'textarea',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
 							),
-							'taxonomy' => array(
-							),
-							'allow_null' => 0,
-							'multiple' => 0,
+							'default_value' => '',
+							'placeholder' => '',
+							'maxlength' => '',
+							'rows' => '',
+							'new_lines' => '',
 						),
 					),
 				),
@@ -132,7 +168,7 @@ class bp_banner_block extends bp_blocks {
 					array(
 						'param' => 'block',
 						'operator' => '==',
-						'value' => 'acf/'. $this->id,
+						'value' => 'acf/' . $this->id,
 					),
 				),
 			),
@@ -144,8 +180,11 @@ class bp_banner_block extends bp_blocks {
 			'hide_on_screen' => '',
 			'active' => true,
 			'description' => '',
+
 		));
+
 	}
+
 	function register() {
 
 		// Register a new block.
@@ -170,7 +209,6 @@ class bp_banner_block extends bp_blocks {
 		Timber::render("blocks/bp-" . $this->id . ".twig", $context);
 
 	}
-
 }
 
-new bp_banner_block();
+new bp_testimonials_block();

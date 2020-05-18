@@ -20,6 +20,8 @@
 		@include bp-large {
 			background-size: 100%;
 		}
+		box-shadow: var(--box-shadow);
+
 	}
 	.wrapper--banner {
 		top: 50%;

@@ -1,3 +1,4 @@
+import heroslider from "./hero-slider.js"; 
 import filterpost_filter from "./blocks/bp-filter-post.js"; 
 import faq from "./blocks/bp-faq.js";
 //import picturefill from "picturefill";

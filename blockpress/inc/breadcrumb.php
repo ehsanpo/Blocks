@@ -1,5 +1,5 @@
 <?php
-function bl_the_breadcrumb() {
+function bp_the_breadcrumb() {
 	global $post;
 	//dont show on search page & single shops
 	if (is_search() || is_front_page()) {

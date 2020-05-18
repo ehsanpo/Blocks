@@ -1,22 +1,26 @@
 <?php
 
-class bp_faq_block extends bp_blocks {
+class bp_image_slider_block extends bp_blocks {
 	function __construct() {
-		$this->id = "faq";
-		$this->name = __("FAQ", "bl");
+		$this->id = 'hero-slider';
+		$this->name = 'Hero Slider';
 		$this->description = __("A custom example block.", "bl");
+		$this->loader = new bp_autoload();
 		$this->define();
 		$this->register();
 	}
+
 	function define() {
 		acf_add_local_field_group(array(
-			'key' => 'group_5d19bedbadfdb',
-			'title' => $this->name,
+			'key' => 'group_5d19bedbadfc1',
+			'title' => $this->id,
 			'fields' => array(
+
 				array(
-					'key' => 'field_5d19beece2dcc',
-					'label' => 'Questions',
-					'name' => 'questions',
+					'key' => 'field_5bc732545afac',
+					'label' => 'slides',
+					'name' => 'slides',
+					'_name' => 'slides',
 					'type' => 'repeater',
 					'instructions' => '',
 					'required' => 0,
@@ -29,19 +33,65 @@ class bp_faq_block extends bp_blocks {
 					'collapsed' => '',
 					'min' => 0,
 					'max' => 0,
-					'layout' => 'table',
+					'layout' => 'row',
 					'button_label' => '',
 					'sub_fields' => array(
 						array(
-							'key' => 'field_5d19bf58e2dcd',
-							'label' => 'Question',
-							'name' => 'question',
+							'key' => 'field_5bc72fbd99e27',
+							'label' => 'Link',
+							'name' => 'link',
+							'_name' => 'link',
+							'type' => 'page_link',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '50',
+								'class' => '',
+								'id' => '',
+							),
+							'post_type' => '',
+							'taxonomy' => '',
+							'allow_null' => 0,
+							'allow_archives' => 1,
+							'multiple' => 0,
+						),
+						array(
+							'key' => 'field_5bc72ea599e24',
+							'label' => 'image',
+							'name' => 'image',
+							'_name' => 'image',
+							'type' => 'image',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '50',
+								'class' => '',
+								'id' => '',
+							),
+							'return_format' => 'array',
+							'preview_size' => 'head',
+							'library' => 'all',
+							'min_width' => '',
+							'min_height' => '',
+							'min_size' => '',
+							'max_width' => '',
+							'max_height' => '',
+							'max_size' => '',
+							'mime_types' => '',
+						),
+						array(
+							'key' => 'field_5bc72ebc99e25',
+							'label' => 'Headline',
+							'name' => 'headline',
+							'_name' => 'headline',
 							'type' => 'text',
 							'instructions' => '',
 							'required' => 0,
 							'conditional_logic' => 0,
 							'wrapper' => array(
-								'width' => '',
+								'width' => '50',
 								'class' => '',
 								'id' => '',
 							),
@@ -51,25 +101,6 @@ class bp_faq_block extends bp_blocks {
 							'append' => '',
 							'maxlength' => '',
 						),
-						array(
-							'key' => 'field_5d19bf84e2dce',
-							'label' => 'Answer',
-							'name' => 'answer',
-							'type' => 'wysiwyg',
-							'instructions' => '',
-							'required' => 0,
-							'conditional_logic' => 0,
-							'wrapper' => array(
-								'width' => '',
-								'class' => '',
-								'id' => '',
-							),
-							'default_value' => '',
-							'tabs' => 'all',
-							'toolbar' => 'full',
-							'media_upload' => 1,
-							'delay' => 0,
-						),
 					),
 				),
 			),
@@ -78,7 +109,7 @@ class bp_faq_block extends bp_blocks {
 					array(
 						'param' => 'block',
 						'operator' => '==',
-						'value' => 'acf/'. $this->id,
+						'value' => 'acf/' . $this->id,
 					),
 				),
 			),
@@ -91,8 +122,8 @@ class bp_faq_block extends bp_blocks {
 			'active' => true,
 			'description' => '',
 		));
-
 	}
+
 	function register() {
 
 		// Register a new block.
@@ -102,7 +133,7 @@ class bp_faq_block extends bp_blocks {
 			'mode' => 'edit',
 			"description" => $this->description,
 			"render_callback" => [$this, "render"],
-			"category" => "common",
+			"category" => "formatting",
 			"icon" => "admin-comments",
 			"align" => "wide",
 			"supports" => array(
@@ -112,12 +143,11 @@ class bp_faq_block extends bp_blocks {
 
 	}
 	function render($block, $content = "", $is_preview = false) {
-		$context = parent::get_block_data($block, $content,$is_preview);
+		$context = parent::get_block_data($block, $content, $is_preview);
 		// Render the block.
 		Timber::render("blocks/bp-" . $this->id . ".twig", $context);
 
 	}
-
 }
 
-new bp_faq_block();
+new bp_image_slider_block();

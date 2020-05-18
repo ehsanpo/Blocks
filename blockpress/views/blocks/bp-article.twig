@@ -1,25 +1,25 @@
-{% if data.show == "select" %}
-{% set post_to_show = data.selected_news_list  %}
+{% if fields.show == "select" %}
+	{% set post_to_show = fields.selected_news_list  %}
 {% else %}
-{% set post_to_show = posts  %}
+	{% set post_to_show = posts  %}
 {% endif %}
-<section class="article-block {% if class %}{{class}}{% endif %}">
-	<div class="wrapper">
-		<ul class="grid--auto-c">
-		{% for post in post_to_show %}
+<section class="bp-block {{block.name}} {{block.className}} align{{block.align}}" style="background-color:{{fields.block_color}}">
+	<ul class="grid--auto-c">
+		{% for post in fields.all_posts %}
 			<li>
 				{% if post.thumbnail %}
 					<img {{post.thumbnail|get_timber_image_responsive('news') }}>
 				{% endif %}
 				<div class="content">
-					<a href="{{post.link}}"><h3>{{post.post_title}}</h3></a>
+					<a href="{{post.link}}">
+						<h3>{{post.post_title}}</h3>
+					</a>
 					<div class="excerpt">
 						{{ post.preview.length(30).read_more('') }}
 					</div>
-					<a  class="readmore" href="{{post.link}}">Läs mer</a>
+					<a class="readmore" href="{{post.link}}">Läs mer</a>
 				</div>
 			</li>
 		{% endfor %}
-		</ul>
-	</div>
+	</ul>
 </section>

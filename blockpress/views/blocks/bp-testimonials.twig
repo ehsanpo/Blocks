@@ -1,0 +1,32 @@
+<section class="bp-block {{block.name}} {{block.className}} align{{block.align}}" {% if fields.block_color is not empty %} style="background-color:{{fields.block_color}}" {% endif %} {% if fields.image %} style="background-image:url({{fields.image}})" {% endif %}>
+	{% if fields.headline %}
+		<h2>{{fields.headline}}</h2>
+	{% endif %}
+	{% if fields.description %}
+		<div class="desc">
+			{{fields.description}}
+		</div>
+	{% endif %}
+	<div class="grid--auto-c">
+		{% for item in fields.testimonials %}
+			<div>
+				<div class="tcard">
+					<div class="person-info">
+						<img src="{{item.image|resize(64,64)}}" alt="{{item.name}}">
+						<div class="name">
+							{{item.name}}
+							{% if item.description %}
+								<span>
+									{{item.description}}
+								</span>
+							{% endif %}
+						</div>
+					</div>
+					<div class="testimonial">
+						{{item.testimonial}}
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</section>

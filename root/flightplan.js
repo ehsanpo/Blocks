@@ -12,7 +12,7 @@ plan.target('dev', {
 	agent: process.env.SSH_AUTH_SOCK,
 }, {
 	root:'/var/www',
-	targets: [ 'mma.dev-bk.se' ],  // EDIT THIS!!
+	targets: [ 'target_folder' ],  // EDIT THIS!!
 	user: 'root'
 });
 
@@ -21,8 +21,8 @@ plan.target('oprod', {
 	username: 'mma',
 	agent: process.env.SSH_AUTH_SOCK,
 }, {
-	root:'/home/mma',
-	targets: [ 'moccamasteracademy.com' ],
+	root:'/home/',
+	targets: [ 'target_folder' ],
 	user: 'mma'
 });
 

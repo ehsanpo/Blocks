@@ -1,23 +1,22 @@
 <?php
 
-class image_text_block  extends bp_blocks{
+class bp_cta_block extends bp_blocks {
 	function __construct() {
-		$this->id = "text-image";
-		$this->name = __("Image & Text", "bl");
+		$this->id = "cta";
+		$this->name = "CTA";
 		$this->description = __("A custom example block.", "bl");
 		$this->define();
 		$this->register();
 	}
 
 	function define() {
-
 		acf_add_local_field_group(array(
-			'key' => 'group_5d19bedbadf02',
+			'key' => 'group_5d19bedbadfcc',
 			'title' => $this->id,
 			'fields' => array(
-				array(
 
-					'key' => 'field_7afd44d0901f1',
+				array(
+					'key' => 'field_5afd44d0901f1',
 					'label' => 'image',
 					'name' => 'image',
 					'_name' => 'image',
@@ -25,8 +24,8 @@ class image_text_block  extends bp_blocks{
 					'instructions' => '',
 					'required' => 0,
 					'conditional_logic' => 0,
-					'wrapper' => array (
-						'width' => '33%',
+					'wrapper' => array(
+						'width' => '50%',
 						'class' => '',
 						'id' => '',
 					),
@@ -37,54 +36,15 @@ class image_text_block  extends bp_blocks{
 					'mime_types' => '',
 				),
 				array(
-					'key' => 'field_7afd451c901f4',
-					'label' => 'Image on left',
-					'name' => 'image_on_left',
-					'_name' => 'image_on_left',
-					'type' => 'true_false',
-					'instructions' => '',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array (
-						'width' => '33%',
-						'class' => '',
-						'id' => '',
-					),
-					'message' => '',
-					'default_value' => 0,
-					'ui' => 1,
-					'ui_on_text' => '',
-					'ui_off_text' => '',
-				),
-				array(
-					'key' => 'field_5c471ef5a5920',
-					'label' => 'Add Padding',
-					'name' => 'add_padding',
-					'type' => 'true_false',
-					'instructions' => '',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '33%',
-						'class' => '',
-						'id' => '',
-					),
-					'message' => '',
-					'default_value' => 0,
-					'ui' => 1,
-					'ui_on_text' => '',
-					'ui_off_text' => '',
-				),
-				array(
-					'key' => 'field_7afd44ee901f2',
+					'key' => 'field_5aa7e7d76d158',
 					'label' => 'Headline',
-					'name' => 'headline',
-					'_name' => 'headline',
+					'name' => 'cta_headline',
+					'_name' => 'cta_headline',
 					'type' => 'text',
 					'instructions' => '',
 					'required' => 0,
 					'conditional_logic' => 0,
-					'wrapper' => array (
+					'wrapper' => array(
 						'width' => '',
 						'class' => '',
 						'id' => '',
@@ -96,65 +56,54 @@ class image_text_block  extends bp_blocks{
 					'maxlength' => '',
 					'readonly' => 0,
 					'disabled' => 0,
-
 				),
 				array(
-					'key' => 'field_7afd4502901f3',
-					'label' => 'Body text',
-					'name' => 'body_text',
-					'_name' => 'body_text',
+					'key' => 'field_5aa7e82e6d159',
+					'label' => 'Sub headline',
+					'name' => 'cta_subheadline',
+					'name' => 'cta_subheadline',
 					'type' => 'wysiwyg',
 					'instructions' => '',
 					'required' => 0,
 					'conditional_logic' => 0,
-					'wrapper' => array (
+					'wrapper' => array(
 						'width' => '',
 						'class' => '',
 						'id' => '',
 					),
 					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+					'readonly' => 0,
+					'disabled' => 0,
 					'tabs' => 'all',
 					'toolbar' => 'full',
 					'media_upload' => 1,
 				),
 				array(
-					'key' => 'field_72a38dd24c498',
-					'label' => 'Link',
-					'name' => 'add_link',
-					'_name' => 'add_link',
-					'type' => 'true_false',
-					'message' => 'Add link(s) to the block?',
-				),
-				array(
-					'key' => 'field_72a393191488a',
+					'key' => 'field_55a393191488b',
 					'label' => 'Links',
 					'name' => 'stn_link',
 					'_name' => 'stn_link',
 					'type' => 'repeater',
 					'instructions' => '',
 					'required' => 0,
-					'conditional_logic' => array (
-						array (
-							array (
-								'field' => 'field_72a38dd24c498',
-								'operator' => '==',
-								'value' => '1',
-							),
-						),
-					),
+					'conditional_logic' => 0,
 					'min' => 1,
 					'max' => '',
 					'layout' => 'block',
 					'button_label' => 'Add another link',
-					'sub_fields' => array (
-						array (
-							'key' => 'field_72a393731488b',
+					'sub_fields' => array(
+						array(
+							'key' => 'field_69a393731488b',
 							'label' => 'Type',
 							'name' => 'link_type',
 							'_name' => 'link_type',
 							'type' => 'radio',
 							'required' => 1,
-							'choices' => array (
+							'choices' => array(
 								'page' => 'Page',
 								'url' => 'URL',
 							),
@@ -162,71 +111,69 @@ class image_text_block  extends bp_blocks{
 							'save_other_choice' => 0,
 							'layout' => 'horizontal',
 						),
-						array (
-							'key' => 'field_72a393a01488c',
+						array(
+							'key' => 'field_69a393a01488c',
 							'label' => 'Text',
 							'name' => 'link_text',
 							'_name' => 'link_text',
 							'type' => 'text',
 							'required' => 1,
-							'wrapper' => array (
+							'wrapper' => array(
 								'width' => 50,
 							),
 						),
-						array (
-							'key' => 'field_72ffd4e416edb',
+						array(
+							'key' => 'field_69ffd4e416edb',
 							'label' => 'Internal Page',
 							'name' => 'link_page',
 							'_name' => 'link_page',
 							'type' => 'page_link',
-							'conditional_logic' => array (
-								array (
-									array (
-										'field' => 'field_72a393731488b',
+							'conditional_logic' => array(
+								array(
+									array(
+										'field' => 'field_69a393731488b',
 										'operator' => '==',
 										'value' => 'page',
 									),
 								),
 							),
-							'wrapper' => array (
+							'wrapper' => array(
 								'width' => 50,
 							),
-							'post_type' => array (
+							'post_type' => array(
 								0 => 'page',
 								1 => 'post',
 							),
-							'taxonomy' => array (
+							'taxonomy' => array(
 							),
 							'allow_null' => 0,
 							'multiple' => 0,
 						),
-						array (
-							'key' => 'field_72a3b2dc137ce',
+						array(
+							'key' => 'field_69a3b2dc137ce',
 							'label' => 'External URL',
 							'name' => 'link_url',
 							'_name' => 'link_url',
 							'type' => 'url',
 							'required' => 0,
-							'conditional_logic' => array (
-								array (
-									array (
-										'field' => 'field_72a393731488b',
+							'conditional_logic' => array(
+								array(
+									array(
+										'field' => 'field_69a393731488b',
 										'operator' => '==',
 										'value' => 'url',
 									),
 								),
 							),
-							'wrapper' => array (
+							'wrapper' => array(
 								'width' => 50,
 							),
 							'placeholder' => 'http://',
 							'default_value' => 'http://',
 						),
 					),
-				)
-
+				),
 			),
-
 			'location' => array(
 				array(
 					array(
@@ -244,15 +191,14 @@ class image_text_block  extends bp_blocks{
 			'hide_on_screen' => '',
 			'active' => true,
 			'description' => '',
+
 		));
-
-
 
 	}
 
 	function register() {
 
-	// Register a new block.
+		// Register a new block.
 		acf_register_block(array(
 			"name" => $this->id,
 			"title" => $this->name,
@@ -269,15 +215,12 @@ class image_text_block  extends bp_blocks{
 
 	}
 	function render($block, $content = "", $is_preview = false) {
-
-		$context = parent::get_block_data($block, $content,$is_preview);
+		$context = parent::get_block_data($block, $content, $is_preview);
 
 		// Render the block.
 		Timber::render("blocks/bp-" . $this->id . ".twig", $context);
 
 	}
-
 }
 
-
-new image_text_block();
+new bp_cta_block();
