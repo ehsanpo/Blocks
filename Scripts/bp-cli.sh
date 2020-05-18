@@ -51,6 +51,7 @@ function devtools_install {
 
 function install_blockpress(){
 
+
 	composer create-project roots/bedrock bedrock
 	mv bedrock/* bedrock/.* .
 	rm -r bedrock
@@ -60,27 +61,37 @@ function install_blockpress(){
 	composer require mindkomm/timmy
 	composer require wpackagist-plugin/wordfence
 
-	echo Setup your Apache/mamp To point to $(pwd)/web
-	echo Enter your dev url, ex http://blockpress.loc
-
-
-while [[ $string != 'string' ]] || [[ $string == '' ]] # While string is different or empty...
-do
-    read -p "Enter string: " string # Ask the user to enter a string
-    echo "Enter a valid string" # Ask the user to enter a valid string
-done
 
 
 	# add salt
 	mv .env .envx
 	tail -r .envx | tail -n +18 | tail -r >> .env
-	echo "DEVURL=$DEVURL" >> .env
-	echo "WP_HOME=$DEVURL" >> .env
-	 is missing, WP_SITEURL
+	rm .envx
+
+	echo  -e "
+
+	\033[32;5m !! Attention! Action required !! ${NC}
+
+	${Green}
+	Setup your Apache/mamp To point to $(pwd)/web
+	Enter your dev url, ex http://blockpress.loc ${NC}
+
+	 "
+	while [[ $string == '' ]] # While string is different or empty...
+	do
+		read -p "Enter url: " string # Ask the user to enter a string
+		echo "Enter a valid string" # Ask the user to enter a valid string
+	done
+
+
+
+ 	echo "WP_SITEURL=$string/wp" >> .env
+	echo "WP_HOME=$string" >> .env
+	echo "DEVURL=$string" >> .env
 	composer require rbdwllr/wordpress-salts-generator
 	vendor/bin/wpsalts dotenv --clean >> .env
 	echo "DB_HOST='127.0.0.1' " >> .env  #need it for wp-cli
-	rm .envx
+
 
 	#WP -CLI
 	#wp plugin activate block-lab
@@ -98,14 +109,41 @@ done
 	npm install
 	yarn build
 
-	Måste konfigurera databas
+	echo  -e "
+
+	\033[32;5m !! Attention! Action required !! ${NC}
+
+	"
 	read -p "You have to add your Database detail to .env file to continue, Press enter to continue"
 
 	wp core install --url="blockpress.loc"  --title="Blockpress" --admin_user="super" --admin_password="admin" --admin_email="admin@blockpress.loc"
 
-	echo "Done, Enjoy Blockpress, E.P. "
+	wp theme activate blockpress-child
+
+	open $string
+	echo -e " ${Green}  Done, Enjoy Blockpress, E.P. ${NC}"
 }
 
+function export_to_vanilla(){
+
+	wp cli update
+	yarn vanilla
+	mkdir temp
+	wp core download --path=temp
+	cp -r web/app/themes/blockpress  temp/wp-content/themes
+	cp -r web/app/themes/blockpress-child  temp/wp-content/themes
+	cp -r vendor temp/wp-content/themes/blockpress
+	rm -r temp/wp-content/themes/blockpress/assets/sass
+	rm -r temp/wp-content/themes/blockpress/assets/script
+	cp -r web/app/plugins temp/wp-content/plugins
+	cd temp/wp-content/plugins
+	yes '' | composer  init --name blockpress/vanliapress
+	composer require timber/timber
+	composer require mindkomm/timmy
+	mv temp Vanilla
+	open Vanilla
+
+}
 
 PS3='Please enter your choice: '
 options=( "Install Blockpress" "Install Devtools" "Install Block Generator" "Export to Vanlia Wordpress" "Quit")
@@ -116,16 +154,17 @@ do
 			install_blockpress
             ;;
         "Export to Vanlia Wordpress")
-            echo "you chose choice 1"
+            export_to_vanilla
             ;;
         "Install Devtools")
             echo "you chose choice 2"
             ;;
-        "Option 3")
-            echo "you chose choice $REPLY which is $opt"
+        "Install Block Generator")
+            echo "coming soon"
             ;;
         "Quit")
             break
+			exit
             ;;
         *) echo "invalid option $REPLY";;
     esac
