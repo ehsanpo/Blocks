@@ -12,18 +12,18 @@ plan.target('dev', {
 	agent: process.env.SSH_AUTH_SOCK,
 }, {
 	root:'/var/www',
-	targets: [ 'target_folder' ],  // EDIT THIS!!
+	targets: [ 'edit-me' ],  // EDIT THIS!!
 	user: 'root'
 });
 
 plan.target('oprod', {
 	host: '91.201.60.110',
-	username: 'mma',
+	username: 'USERNAME',
 	agent: process.env.SSH_AUTH_SOCK,
 }, {
 	root:'/home/',
-	targets: [ 'target_folder' ],
-	user: 'mma'
+	targets: [ 'edit-me' ],
+	user: 'USERNAME'
 });
 
 
@@ -61,6 +61,7 @@ var tmpDir = '/tmp/site' + time;
 plan.local('deploy', function(local) {
 
 	local.log('Building the site');
+	local.exec('yarn build');
 	local.exec('composer dump-autoload --optimize');
 
 	local.log('Copying release');
