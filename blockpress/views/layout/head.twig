@@ -6,13 +6,11 @@
 {% if options.share_description %}
 	<meta property="og:description" content="{{options.share_description}}" />
 {% endif %}
-<!-- {% if options.share_image %}
+{% if options.share_image %}
 	<meta property="og:image" content="{{options.share_image.url|resize(1200,630)}}" />
-{% endif %} -->
+{% endif %}
 <link rel="shortcut icon" type="image/x-icon" href="{{ theme.path }}/assets/dist/favicons/favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ theme.path }}/assets/dist/favicons/apple-touch-icon-180x180.png">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ theme.path }}/assets/dist/favicons/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ theme.path }}/assets/dist/favicons/favicon-16x16.png">
-
-<link rel="preload" href="{{main_css}}" as="style">
 <link rel="stylesheet" href="{{main_css}}">
