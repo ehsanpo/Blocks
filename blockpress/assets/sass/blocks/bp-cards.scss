@@ -1,13 +1,9 @@
 .bp-cards{
-	
+
 	@extend %block-pad;
 	h3{
 		margin: 0 0 var(--pad);
 	}
-	li{
-		min-width: 25%;
-		max-width: 50%;
-    }
     .content{
         background: var(--bg11);
 		padding : var(--pad1);

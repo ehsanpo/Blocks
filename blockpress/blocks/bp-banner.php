@@ -3,7 +3,7 @@
 class bp_banner_block extends bp_blocks {
 	function __construct() {
 		$this->id = "banner";
-		$this->name =  __("Banner", "bl");
+		$this->name = __("Banner", "bl");
 		$this->description = __("A custom example block.", "bl");
 
 		$this->define();
@@ -14,6 +14,15 @@ class bp_banner_block extends bp_blocks {
 			'key' => 'group_5d19bedbadf06',
 			'title' => $this->id,
 			'fields' => array(
+				array(
+					'key' => 'field_a2ac436aa4400',
+					'label' => $this->name . '<img src="' . get_template_directory_uri() . '/assets/img/blocks/' . $this->id . '.png" style="width: 100px;vertical-align: middle;margin-left: 10px;" />',
+					'type' => 'accordion',
+					'conditional_logic' => 0,
+					'open' => 0,
+					'multi_expand' => 0,
+					'endpoint' => 0,
+				),
 				array(
 					'key' => 'field_7afd3f3a59f88',
 					'label' => 'Title',
@@ -132,7 +141,7 @@ class bp_banner_block extends bp_blocks {
 					array(
 						'param' => 'block',
 						'operator' => '==',
-						'value' => 'acf/'. $this->id,
+						'value' => 'acf/' . $this->id,
 					),
 				),
 			),
@@ -165,7 +174,7 @@ class bp_banner_block extends bp_blocks {
 
 	}
 	function render($block, $content = "", $is_preview = false) {
-		$context = parent::get_block_data($block, $content,$is_preview);
+		$context = parent::get_block_data($block, $content, $is_preview);
 		// Render the block.
 		Timber::render("blocks/bp-" . $this->id . ".twig", $context);
 

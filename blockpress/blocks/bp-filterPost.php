@@ -1,7 +1,7 @@
 <?php
 class bp_post_filter_block extends bp_blocks {
 	function __construct() {
-		$this->id = "filter-post";
+		$this->id = "filterpost";
 		$this->name = "Post Filter";
 		$this->description = __("A custom example block.", "bl");
 
@@ -21,7 +21,15 @@ class bp_post_filter_block extends bp_blocks {
 			'key' => 'group_5d19bedbadf09',
 			'title' => $this->name,
 			'fields' => array(
-
+				array(
+					'key' => 'field_a5ac436aa4400',
+					'label' => $this->name . '<img src="' . get_template_directory_uri() . '/assets/img/blocks/' . $this->id . '.png" style="width: 100px;vertical-align: middle;margin-left: 10px;" />',
+					'type' => 'accordion',
+					'conditional_logic' => 0,
+					'open' => 0,
+					'multi_expand' => 0,
+					'endpoint' => 0,
+				),
 				array(
 					'key' => 'field_88a38dd24c477',
 					'label' => 'Show filters',

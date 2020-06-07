@@ -5,11 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
       if (this.checked) {
         trans();
         document.documentElement.setAttribute("data-theme", "dark");
-        svg_color_change("#000");
+        svg_color_change("#fff");
       } else {
         trans();
         document.documentElement.setAttribute("data-theme", "light");
-        svg_color_change("#fff");
+        svg_color_change("#000");
       }
     });
 

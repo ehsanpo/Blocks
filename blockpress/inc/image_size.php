@@ -3,9 +3,8 @@
 add_filter('timmy/sizes', function ($sizes) {
 	return array(
 		'head' => array(
-			'resize' => array(1400, 900, 'center'),
+			'resize' => array(500, 300),
 			'srcset' => array(
-				array(1024),
 				array(480),
 				2,
 			),

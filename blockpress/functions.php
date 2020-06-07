@@ -99,7 +99,7 @@ class StarterSite extends Timber\Site {
 
         add_action('enqueue_block_editor_assets', function () {
             wp_enqueue_style('main_css', $this->loader->MAIN_CSS, false, '1.0', 'all');
-            wp_enqueue_style('theme_critical', get_template_directory_uri() . '/assets/dist/' . $this->loader->CRITICAL, false, '1.0', 'all');
+            wp_enqueue_style('theme_critical', get_template_directory_uri() . '/' .  $this->loader->CRITICAL, false, '1.0', 'all');
 
         });
         add_action('wp_enqueue_scripts', function () {

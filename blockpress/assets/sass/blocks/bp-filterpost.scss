@@ -1,4 +1,4 @@
-.bp-filter-post{
+.bp-filterpost{
 
 	.filters > div{
 		max-height: 0;
@@ -8,7 +8,7 @@
 	.filters > .open {
 		max-height: 200px;
 		padding-top:var(--pad2);
-	
+
 	}
 	.layout--filter{
 		margin-bottom:  var(--pad1);
@@ -33,5 +33,5 @@
 			text-align: center;
 		}
 	}
-	
+
 }

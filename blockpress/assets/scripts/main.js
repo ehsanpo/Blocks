@@ -1,21 +1,18 @@
-import heroslider from "./hero-slider.js"; 
-import filterpost_filter from "./blocks/bp-filter-post.js"; 
+import heroslider from "./blocks/hero-slider.js";
+import filterpost_filter from "./blocks/bp-filter-post.js";
 import faq from "./blocks/bp-faq.js";
 //import picturefill from "picturefill";
 import cookie from "./cookie.js";
 import lazyload from "lazysizes";
 import mode from "./mode.js"
 
-//import css_grid_poly from  './css-polyfills.min';
 import AOS from "aos";
 
 window.app = {
 	init : function (){
-		console.log(1111);
 		AOS.init();
 	}
 };
-
 
 (function ($) {
 	$(function () {
@@ -24,7 +21,6 @@ window.app = {
 			$(".header__navigation").toggleClass("open");
         });
 		app.init();
-		
 	});
 })(jQuery);
 

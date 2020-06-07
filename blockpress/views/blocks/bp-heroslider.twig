@@ -1,7 +1,7 @@
 <section class="bp-block {{block.name}} {{block.className}} align--{{block.align}} " {% if fields.block_color is not empty %} style="background-color:{{fields.block_color}}" {% endif %}>
- <!-- Slider main container -->
+ {# <!-- Slider main container --> #}
 <div class="swiper-container">
-    <!-- Additional required wrapper -->
+    {# <!-- Additional required wrapper --> #}
     <div class="swiper-wrapper">
 			{% for item in fields.slides %}
 				<a class="swiper-slide lazyload" href="{{item.link}}" data-bg="{{item.image.url|resize(1400)}}">
@@ -15,15 +15,14 @@
 				</a>
 			{% endfor %}
     </div>
-    <!-- If we need pagination -->
+    {# <!-- If we need pagination --> #}
     <div class="swiper-pagination"></div>
 
-    <!-- If we need navigation buttons -->
+    {# <!-- If we need navigation buttons --> #}
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
 
-    <!-- If we need scrollbar -->
+    {# <!-- If we need scrollbar --> #}
     <div class="swiper-scrollbar"></div>
 </div>
 </section>
-<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">

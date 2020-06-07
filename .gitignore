@@ -28,3 +28,4 @@ wp-cli.local.yml
 yarn.lock
 
 blockpress/assets/dist
+design/Block-images

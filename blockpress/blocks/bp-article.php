@@ -15,6 +15,15 @@ class bp_article_block extends bp_blocks {
 			'title' => $this->id,
 			'fields' => array(
 				array(
+					'key' => 'field_a1ac436aa4400',
+					'label' => $this->name . '<img src="' . get_template_directory_uri() . '/assets/img/blocks/' . $this->id . '.png" style="width: 100px;vertical-align: middle;margin-left: 10px;" />',
+					'type' => 'accordion',
+					'conditional_logic' => 0,
+					'open' => 0,
+					'multi_expand' => 0,
+					'endpoint' => 0,
+				),
+				array(
 					'key' => 'field_f30b6b21ddc7f',
 					'label' => 'Show',
 					'name' => 'show',
@@ -56,7 +65,6 @@ class bp_article_block extends bp_blocks {
 					'placeholder' => '',
 					'disabled' => 0,
 					'readonly' => 0,
-
 
 				),
 				array(
@@ -112,7 +120,7 @@ class bp_article_block extends bp_blocks {
 					'multiple' => 1,
 					'return_format' => 'object',
 					'ui' => 1,
-				)
+				),
 
 			),
 			'location' => array(
@@ -133,7 +141,6 @@ class bp_article_block extends bp_blocks {
 			'active' => true,
 			'description' => '',
 
-
 		));
 
 	}
@@ -142,25 +149,24 @@ class bp_article_block extends bp_blocks {
 		$data['all_posts'] = Timber::get_posts('post_type=' . $data['post_list'] . '&numberposts=' . $data['news_to_show']);
 		return $data;
 	}
-	function get_post_types(){
+	function get_post_types() {
 
-		$post_types = get_post_types( array('public'   => true ), 'objects' );
+		$post_types = get_post_types(array('public' => true), 'objects');
 		$post_type_array = [];
 
 		foreach ($post_types as $obj) {
-			if ($obj->name !== 'attachment' ) {
+			if ($obj->name !== 'attachment') {
 				$post_type_array[$obj->name] = $obj->label;
 			}
-			}
+		}
 
-		return($post_type_array );
-
+		return ($post_type_array);
 
 	}
 
 	function register() {
 
-	// Register a new block.
+		// Register a new block.
 		acf_register_block(array(
 			"name" => $this->id,
 			"title" => $this->name,
@@ -179,7 +185,7 @@ class bp_article_block extends bp_blocks {
 	function render($block, $content = "", $is_preview = false) {
 
 		// $content
-		$context = parent::get_block_data($block, $content,$is_preview);
+		$context = parent::get_block_data($block, $content, $is_preview);
 		$context['fields'] = $this->get_template_data($context['fields']);
 
 		// Render the block.

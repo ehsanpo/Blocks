@@ -1,0 +1,65 @@
+# Github Action Flow For BP
+
+#  release-on-push-action Github Action to create a git tag + release when pushed to master
+
+
+name: Publish Website to dev
+
+on:
+  push:
+    branches: [ dev ]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+
+    - name: Install dependencies
+      working-directory: site
+      run: |
+        composer install -o
+        npm install
+
+    - name: Build
+      if: ${{ success() }}
+      working-directory: site
+      run: npm run build
+
+    - name: Cleanup
+      if: ${{ success() }}
+      working-directory: site
+      shell: bash
+      run: rm -r node_modules
+
+    - name: Link upload files
+      working-directory: site/public_html/site
+      shell: bash
+      run: ln -s ../../../../uploads uploads
+
+    - name: Link .env
+      working-directory: site
+      shell: bash
+      run: ln -s ../../.env .env
+
+    - name: Sync
+      shell: bash
+      env:
+        dest: '${{secrets.SSH_USER}}@${{secrets.SERVER_IP}}:${{secrets.SERVER_PATH}}/git'
+        ssh_port: 1988
+      run: |
+        echo "${{secrets.DEPLOY_KEY}}" > deploy_key
+        chmod 600 ./deploy_key
+        rsync -chav --rsync-path="~/rsync" \
+          --exclude /.deploy_key \
+          --exclude /.git/ \
+          --exclude /.github/ \
+          --exclude /.gitignore \
+          --exclude /site/node_modules/ \
+          --delete -e  \
+          'sshpass -P ":"  -p "${{secrets.DEPLOY_KEY_PASS}}" ssh -i deploy_key -p ${{env.ssh_port}} -o StrictHostKeyChecking=no' \
+          ./ ${{env.dest}}

@@ -14,6 +14,15 @@ class bp_faq_block extends bp_blocks {
 			'title' => $this->name,
 			'fields' => array(
 				array(
+					'key' => 'field_a4ac436aa4400',
+					'label' => $this->name . '<img src="' . get_template_directory_uri() . '/assets/img/blocks/' . $this->id . '.png" style="width: 100px;vertical-align: middle;margin-left: 10px;" />',
+					'type' => 'accordion',
+					'conditional_logic' => 0,
+					'open' => 0,
+					'multi_expand' => 0,
+					'endpoint' => 0,
+				),
+				array(
 					'key' => 'field_5d19beece2dcc',
 					'label' => 'Questions',
 					'name' => 'questions',

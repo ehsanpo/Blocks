@@ -3,7 +3,7 @@
 {% else %}
 	{% set post_to_show = posts  %}
 {% endif %}
-<section class="bp-block {{block.name}} {{block.className}} align{{block.align}}" style="background-color:{{fields.block_color}}">
+<section class="bp-block bp-cards {{block.name}} {{block.className}} align{{block.align}}" style="background-color:{{fields.block_color}}">
 	<ul class="grid--auto-c">
 		{% for post in fields.all_posts %}
 			<li>

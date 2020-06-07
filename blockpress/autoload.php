@@ -12,9 +12,9 @@ class bp_autoload {
 		$this->BP_ACF_URL = get_template_directory_uri() . '/inc/acf/';
 		$this->ALLOWED_BLOCKS = json_decode(file_get_contents(__DIR__ . '/allowed_blocks.json'));
 		$this->CSS_VARIABLES = file_get_contents(__DIR__ . '/assets/sass/base/variables.scss');
-		$this->MAIN_CSS = "";
-		$this->CRITICAL = "";
-		$this->MAIN_JS = "";
+		$this->MAIN_CSS =  get_template_directory_uri() . '/assets/dist/main.css';
+		$this->CRITICAL =  'assets/dist/critical.css';
+		$this->MAIN_JS = get_template_directory_uri() . '/assets/dist/mainScript.min.js';
 
 	}
 	public function setup() {
@@ -24,7 +24,6 @@ class bp_autoload {
 		$this->load_inc();
 		$this->timber();
 		$this->load_blocks();
-		$this->load_assets();
 		$this->register_custom_post_types();
 
 	}
@@ -56,14 +55,6 @@ class bp_autoload {
 	private function load_acf() {
 
 		require_once $this->BP_ACF . 'acf.php';
-	}
-	private function load_assets() {
-
-		require $this->BP_ASSETS;
-		$this->MAIN_CSS = get_template_directory_uri() . '/assets/dist/' . $main_css;
-		$this->CRITICAL = $critical;
-		$this->MAIN_JS = get_template_directory_uri() . '/assets/dist/' . $main_js;
-
 	}
 	private function register_custom_post_types() {
 		$custom_post_types = glob($this->BP_CUSTOM_POST_TYPE . '/*.php');

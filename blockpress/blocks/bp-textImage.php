@@ -2,7 +2,7 @@
 
 class image_text_block  extends bp_blocks{
 	function __construct() {
-		$this->id = "text-image";
+		$this->id = "textimage";
 		$this->name = __("Image & Text", "bl");
 		$this->description = __("A custom example block.", "bl");
 		$this->define();
@@ -16,7 +16,15 @@ class image_text_block  extends bp_blocks{
 			'title' => $this->id,
 			'fields' => array(
 				array(
-
+					'key' => 'field_abac436aa4400',
+					'label' => $this->name . '<img src="' . get_template_directory_uri() . '/assets/img/blocks/' . $this->id . '.png" style="width: 100px;vertical-align: middle;margin-left: 10px;" />',
+					'type' => 'accordion',
+					'conditional_logic' => 0,
+					'open' => 0,
+					'multi_expand' => 0,
+					'endpoint' => 0,
+				),
+				array(
 					'key' => 'field_7afd44d0901f1',
 					'label' => 'image',
 					'name' => 'image',

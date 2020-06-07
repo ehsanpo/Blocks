@@ -2,7 +2,7 @@
 
 class bp_image_slider_block extends bp_blocks {
 	function __construct() {
-		$this->id = 'hero-slider';
+		$this->id = 'heroslider';
 		$this->name = 'Hero Slider';
 		$this->description = __("A custom example block.", "bl");
 		$this->loader = new bp_autoload();
@@ -15,12 +15,19 @@ class bp_image_slider_block extends bp_blocks {
 			'key' => 'group_5d19bedbadfc1',
 			'title' => $this->id,
 			'fields' => array(
-
+				array(
+					'key' => 'field_a6ac436aa4400',
+					'label' => $this->name . '<img src="' . get_template_directory_uri() . '/assets/img/blocks/' . $this->id . '.png" style="width: 100px;vertical-align: middle;margin-left: 10px;" />',
+					'type' => 'accordion',
+					'conditional_logic' => 0,
+					'open' => 0,
+					'multi_expand' => 0,
+					'endpoint' => 0,
+				),
 				array(
 					'key' => 'field_5bc732545afac',
-					'label' => 'slides',
+					'label' => 'Slides',
 					'name' => 'slides',
-					'_name' => 'slides',
 					'type' => 'repeater',
 					'instructions' => '',
 					'required' => 0,

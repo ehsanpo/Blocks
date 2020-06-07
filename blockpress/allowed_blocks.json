@@ -1,14 +1,13 @@
 [
   "core/video",
-  "core/cover",
   "core/html",
   "acf/faq",
   "acf/links",
-  "acf/text-image",
+  "acf/textimage",
   "acf/banner",
-  "acf/filter-post",
+  "acf/filterpost",
 	"acf/article",
 	"acf/cta",
-	"acf/hero-slider",
+	"acf/heroslider",
 	"acf/testimonials"
 ]
