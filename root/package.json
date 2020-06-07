@@ -1,10 +1,10 @@
 {
-  "name": "wp4wp",
-  "version": "1.0.0",
-  "description": "Webpack for WordPress.",
+  "name": "blockpress",
+  "version": "1.0.1",
+  "description": "Webpack for BlockPress.",
   "main": "index.js",
-  "author": "TheRuky",
-  "repository": "https://github.com/TheRuky/wp4wp",
+  "author": "Echo",
+  "repository": "https://github.com/ehsanpo/Blocks",
   "license": "MIT",
   "scripts": {
     "dev": "webpack --watch --mode=development",
@@ -47,10 +47,12 @@
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
     "dotenv": "^8.2.0",
+    "dotenv-extended": "^2.8.0",
     "dotenv-webpack": "^1.8.0",
     "favicons-webpack-plugin": "^3.0.1",
     "file-loader": "^6.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
+    "html-webpack-harddisk-plugin": "^1.0.1",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
     "minimatch": "^3.0.4",
@@ -67,17 +69,15 @@
     "webpack": "^4.43.0",
     "webpack-clean-obsolete-chunks": "^0.4.0",
     "webpack-cli": "^3.3.11",
-		"webpack-dashboard": "^3.2.0",
-		"wp-cli": "^0.0.5"
+    "webpack-dashboard": "^3.2.0",
+    "webpack-dev-server": "^3.11.0",
+    "wp-cli": "^0.0.5"
   },
   "dependencies": {
     "aos": "^2.3.4",
-    "flightplan": "^0.6.20",
     "jquery": "^3.5.1",
     "lazysizes": "^5.2.0",
     "picturefill": "^3.0.3",
-    "slick-carousel": "^1.8.1",
     "swiper": "^5.4.0"
-
   }
 }
