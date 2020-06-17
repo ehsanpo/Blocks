@@ -1,1 +1,8 @@
-<p>{{ text }}</p>
+<div class="wrapper-m">
+	{{#if text}}
+		<p class="test">{{ text }}</p>
+	{{/if}}
+	{{#each people}}
+		<li>{{this}}</li>
+	{{/each}}
+</div>

@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/* Import all in folder
+ ========================================================================== */
+/* Variables
+ ==========================================================================
+1.Pick Primary colors
+ https://www.colorsandfonts.com/color-palettes.html
+
+2. Add schema
+ https://hihayk.github.io/scale/
+
+3.Generate UX color
+ https://colors.eva.design/
+
+ */
+html {
+  --c1:#FE5F55;
+  --c10: #FF6899;
+  --c11:#D5545A;
+  --c2: #26B198;
+  --c20: #65CE80;
+  --c21: #299375;
+  --bg1: #fff;
+  --bg10: #ecf0f1;
+  --bg11: #dfe4ea;
+  --text_color: #111;
+  --overlay: rgba(255, 255, 255, 0.2);
+  --success: #0FD881;
+  --success_text: #366203;
+  --danger: #FC4E3F;
+  --danger_text:#7a0d39;
+  --info: #3EADF2;
+  --info_text: #021f77;
+  --warning: #FFC700;
+  --warning_text: #7a3901;
+  --n1: #e9e9e9;
+  --n2: #babdbf;
+  --n3: #666a6d;
+  --n4: #212122;
+  --pad0: 8px;
+  --pad: 16px;
+  --pad1: 24px;
+  --pad2: 32px;
+  --pad3: 48px;
+  --pad4: 64px;
+  --pad5: 96px;
+  --block_pad: 32px;
+  --border-radius: 8px;
+  --box-shadow: 6px 6px 12px var(--bg11),-6px -6px 12px rgba(var(--bg10), 0.8) ; }
+
+html[data-theme='dark'] {
+  --bg1: #011627;
+  --bg10: #223C44;
+  --bg11: #00041E;
+  --text_color: #f9fcfc;
+  --overlay: rgba(0,0,0,0.5); }
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: cubic-bezier(0.68, -0.55, 0.27, 1.55) 420ms !important;
+  transition-delay: 0 !important; }
+
+/* Mixin
+ ========================================================================== */
+.cf {
+  *zoom: 1; }
+  .cf:before, .cf:after {
+    content: " ";
+    display: table; }
+  .cf:after {
+    clear: both; }
+
+.v-center {
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  position: relative; }
+
+.wrapper {
+  width: 1128px;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box; }
+  @media only screen and (max-width: 1128px) {
+    .wrapper {
+      padding: 0 var(--pad); } }
+  @media only screen and (max-width: 40em) {
+    .wrapper {
+      padding: 0 var(--pad); } }
+
+.wrapper-m {
+  width: 720px;
+  max-width: 100%;
+  margin: 0 auto; }
+
+.visually-hidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute; }
+
+/* Media querys */
+/* Block padding */
+/* background cover */
+/* Delay för child elements */
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+/* Helper Classes
+ ========================================================================== */
+body {
+  background: #000; }
