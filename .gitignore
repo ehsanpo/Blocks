@@ -29,3 +29,4 @@ yarn.lock
 
 blockpress/assets/dist
 design/Block-images
+package-lock.json

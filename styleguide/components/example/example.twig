@@ -1,0 +1,11 @@
+<div class="wrapper-m">
+	{% if fields.text %}
+		<p class="test">{{ fields.text }}</p>
+	{% endif %}
+
+	<ul>
+		{% for item in fields.people %}
+				<li>{{item}}</li>
+		{% endfor %}
+	</ul>
+</div>
