@@ -19,6 +19,12 @@ const consolidate = require('@frctl/consolidate');
 
  const data =  require('./data.js');
 
+/*
+ * Require fields & ID generator
+ */
+
+const {	acf_field_group,acf_field} =  require('./inc/fields.js');
+const uniqid =  require('./inc/uniqid.js');
 
 /*
  * Require Twig
@@ -26,6 +32,7 @@ const consolidate = require('@frctl/consolidate');
 const twigAdapter = consolidate('twig');
 fractal.components.engine(twigAdapter);
 fractal.components.set('ext', '.twig');
+
 
 /*
  * Give your project a title.
@@ -96,12 +103,8 @@ function listComponents(args, done){
 fractal.cli.command('list-components', listComponents, config); // register the command
 
 
-config = {
-    description: 'Generate empty Component'
-};
 function newComponents(args, done){
 	const app = this.fractal;
-	console.log(args);
 	const name = args.name.replace(/[^a-z]/gi, '')
 	const path = 'components/' + args.path + '/' + name + '/' + name ;
 	const dir = 'components/' + args.path + '/' + name ;
@@ -135,9 +138,79 @@ function newComponents(args, done){
 
     done();
 };
-fractal.cli.command('new-comp <name> <path>', newComponents, config); // register the command
+fractal.cli.command('new-comp <name> <path>', newComponents,{
+    description: 'Generate empty Component'
+}); // register the command
 
 
+function ex(args, done){
+	const app = this.fractal;
+	const path = 'components/blocks/' + args.name + '/';
+	const jsonPath = path + args.name  + '.json'
+
+	let obj = JSON.parse(fs.readFileSync( jsonPath, 'utf8'));
+	let group = acf_field_group;
+
+	group.key = uniqid('group_')
+	group.title =  obj.title;
+	group.description = obj.description;
+	group.location[0][0].value = "acf/" + obj.name;
+	let fields = [];
+
+	for (const key in obj.fields) {
+		const element = obj.fields[key];
+		let field2 = {...acf_field};
+		field2.key = uniqid('field_');
+		field2.label = element.label;
+		field2.name = key;
+		field2.type = element.type;
+		fields.push(field2);
+	}
+
+	group.fields = fields;
+
+
+	let field_converted =  buildPhpArraysFromJson(fields);
+
+	console.log(field_converted)
+
+	fs.writeFileSync( path + args.name + '_fields.json', JSON.stringify(group, null, 4) , function (err) {
+		if (err) throw err;
+		this.log('Fields File is created successfully.');
+	});
+
+	fs.readFile("inc/blockClass.php", "utf8", function(err, data) {
+
+		data = data.replace(/{#name#}/g, args.name)
+		data = data.replace(/{#title#}/g, group.title )
+		data = data.replace(/{#description#}/g, group.description )
+
+		fs.writeFileSync( path + args.name + '_fields.php', data , function (err) {
+			if (err) throw err;
+			this.log('Fileds File is created successfully.');
+		});
+	});
+}
+fractal.cli.command('ex <name>', ex, {
+    description: 'Export components to BlockPress'
+}); // register the command
+
+
+function buildPhpArraysFromJson(fields) {
+
+	let res = "";
+
+	for (const field of fields) {
+		res += 'array('
+		for (const key of Object.keys(field)) {
+			res += `'${key}' => '${field[key]}',`
+		}
+		res = res.slice(0, -1);
+		res += '),'
+	}
+
+	return res.slice(0, -1);
+}
 
 
 /*
